@@ -24,11 +24,18 @@ class ArchitectureAnalyzer:
             modules[info.name] = info
             all_imports.extend(info.imports)
         graph = DependencyGraph.from_imports(set(modules), all_imports)
-        external_imports = Counter(edge.target.split(".")[0] for edge in all_imports if edge.is_external and edge.target)
+        external_imports = Counter(
+            edge.target.split(".")[0]
+            for edge in all_imports
+            if edge.is_external and edge.target
+        )
         top_complex = sorted(
-            ((name, module.metrics.complexity_score) for name, module in modules.items()),
+            (
+                (name, module.metrics.complexity_score)
+                for name, module in modules.items()
+            ),
             key=lambda item: item[1],
-            reverse=True
+            reverse=True,
         )[:10]
         return AnalysisSummary(
             root=self.root,
@@ -37,5 +44,5 @@ class ArchitectureAnalyzer:
             orphan_modules=graph.orphan_modules(),
             external_imports=dict(external_imports.most_common()),
             top_complex_modules=top_complex,
-            graph_stats=graph.stats()
+            graph_stats=graph.stats(),
         )
