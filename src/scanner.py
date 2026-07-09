@@ -1,5 +1,5 @@
 from pathlib import Path
-from config import ScanConfig
+from src.config import ScanConfig
 
 
 class ProjectScanner:

@@ -1,10 +1,10 @@
 from collections import Counter
 from pathlib import Path
-from config import ScanConfig
-from graph import DependencyGraph
-from models import AnalysisSummary, ImportEdge, ModuleInfo
-from parser import ModuleParser
-from scanner import ProjectScanner, module_name_from_path
+from src.config import ScanConfig
+from src.graph import DependencyGraph
+from src.models import AnalysisSummary, ImportEdge, ModuleInfo
+from src.parser import ModuleParser
+from src.scanner import ProjectScanner, module_name_from_path
 
 
 class ArchitectureAnalyzer:

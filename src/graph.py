@@ -1,5 +1,5 @@
 from collections import defaultdict, deque
-from models import Cycle, ImportEdge
+from src.models import Cycle, ImportEdge
 
 
 class DependencyGraph:

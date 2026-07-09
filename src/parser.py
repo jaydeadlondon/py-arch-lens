@@ -1,7 +1,7 @@
 import ast
 from pathlib import Path
-from models import ImportEdge, ModuleInfo, ModuleMetrics
-from scanner import module_name_from_path, package_name_from_module
+from src.models import ImportEdge, ModuleInfo, ModuleMetrics
+from src.scanner import module_name_from_path, package_name_from_module
 
 
 class ModuleParser:

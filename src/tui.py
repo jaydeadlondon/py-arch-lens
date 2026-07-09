@@ -1,5 +1,5 @@
 from pathlib import Path
-from analyzer import ArchitectureAnalyzer
+from src.analyzer import ArchitectureAnalyzer
 
 
 def run_tui(path: Path) -> None:
@@ -95,7 +95,7 @@ def run_tui(path: Path) -> None:
 
 def _fallback_tui(path: Path) -> None:
     from rich.console import Console
-    from formatting import cycle_table, external_table, module_table, summary_panel
+    from src.formatting import cycle_table, external_table, module_table, summary_panel
 
     console = Console()
     summary = ArchitectureAnalyzer(path).analyze()

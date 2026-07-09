@@ -1,7 +1,7 @@
 from rich.table import Table
 from rich.panel import Panel
 from rich.text import Text
-from models import AnalysisSummary
+from src.models import AnalysisSummary
 
 
 def summary_panel(summary: AnalysisSummary) -> Panel:

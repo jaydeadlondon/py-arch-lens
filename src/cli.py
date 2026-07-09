@@ -1,10 +1,10 @@
 from pathlib import Path
 import typer
 from rich.console import Console
-from analyzer import ArchitectureAnalyzer
-from formatting import cycle_table, external_table, module_table, summary_panel
-from reports.html_report import write_html_report
-from reports.json_report import write_json_report
+from src.analyzer import ArchitectureAnalyzer
+from src.formatting import cycle_table, external_table, module_table, summary_panel
+from src.reports.html_report import write_html_report
+from src.reports.json_report import write_json_report
 
 app = typer.Typer(help="Analyze Python project architecture")
 console = Console()
