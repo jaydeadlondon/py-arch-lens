@@ -1,0 +1,30 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PyArchLens Report</title>
+<style>
+body{font-family:Inter,Arial,sans-serif;margin:0;background:#0f172a;color:#e2e8f0}
+header{padding:32px;background:#111827;border-bottom:1px solid #334155}
+main{padding:24px;display:grid;gap:24px}
+section{background:#111827;border:1px solid #334155;border-radius:16px;padding:20px;box-shadow:0 20px 40px rgba(0,0,0,.25)}
+h1,h2{margin:0 0 16px}table{width:100%;border-collapse:collapse}th,td{padding:10px;border-bottom:1px solid #334155;text-align:left}th{color:#93c5fd}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}.card{background:#1e293b;border-radius:14px;padding:18px}.number{font-size:32px;font-weight:800;color:#38bdf8}.bad{color:#fb7185}.good{color:#34d399}.tag{display:inline-block;padding:4px 8px;border-radius:999px;background:#334155;margin:2px}
+</style>
+</head>
+<body>
+<header><h1>PyArchLens Report</h1><div>/Users/worldpactleader/workflow/projects/py-arch-lens</div></header>
+<main>
+<section class="cards">
+<div class="card"><div>Modules</div><div class="number">19</div></div>
+<div class="card"><div>Edges</div><div class="number">1</div></div>
+<div class="card"><div>Cycles</div><div class="number good">0</div></div>
+<div class="card"><div>Orphans</div><div class="number">17</div></div>
+</section>
+<section><h2>Top complex modules</h2><table><tr><th>Module</th><th>Score</th></tr><tr><td>parser</td><td>347</td></tr><tr><td>graph</td><td>277</td></tr><tr><td>tui</td><td>202</td></tr><tr><td>formatting</td><td>103</td></tr><tr><td>analyzer</td><td>95</td></tr><tr><td>scanner</td><td>95</td></tr><tr><td>cli</td><td>85</td></tr><tr><td>models</td><td>78</td></tr><tr><td>reports.html_report</td><td>54</td></tr><tr><td>config</td><td>48</td></tr></table></section>
+<section><h2>Cycles</h2><p class="good">No cycles found.</p></section>
+<section><h2>Modules</h2><table><tr><th>Module</th><th>Lines</th><th>Imports</th><th>Classes</th><th>Functions</th><th>Complexity</th></tr><tr><td>__init__</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>__main__</td><td>3</td><td>1</td><td>0</td><td>0</td><td>4</td></tr><tr><td>analyzer</td><td>48</td><td>10</td><td>1</td><td>2</td><td>95</td></tr><tr><td>cli</td><td>43</td><td>11</td><td>0</td><td>3</td><td>85</td></tr><tr><td>config</td><td>31</td><td>3</td><td>1</td><td>1</td><td>48</td></tr><tr><td>formatting</td><td>58</td><td>4</td><td>0</td><td>4</td><td>103</td></tr><tr><td>graph</td><td>118</td><td>4</td><td>1</td><td>10</td><td>277</td></tr><tr><td>models</td><td>56</td><td>4</td><td>5</td><td>0</td><td>78</td></tr><tr><td>parser</td><td>194</td><td>7</td><td>2</td><td>22</td><td>347</td></tr><tr><td>reports</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>reports.html_report</td><td>44</td><td>3</td><td>0</td><td>1</td><td>54</td></tr><tr><td>reports.json_report</td><td>31</td><td>3</td><td>0</td><td>1</td><td>42</td></tr><tr><td>scanner</td><td>37</td><td>2</td><td>1</td><td>5</td><td>95</td></tr><tr><td>tests.conftest</td><td>10</td><td>2</td><td>0</td><td>0</td><td>30</td></tr><tr><td>tests.test_analyzer</td><td>12</td><td>2</td><td>0</td><td>1</td><td>21</td></tr><tr><td>tests.test_graph</td><td>31</td><td>3</td><td>0</td><td>3</td><td>44</td></tr><tr><td>tests.test_parser</td><td>31</td><td>2</td><td>0</td><td>1</td><td>38</td></tr><tr><td>tests.test_scanner</td><td>20</td><td>3</td><td>0</td><td>3</td><td>33</td></tr><tr><td>tui</td><td>105</td><td>17</td><td>1</td><td>8</td><td>202</td></tr></table></section>
+<section><h2>External imports</h2><span class="tag">src: 39</span><span class="tag">pathlib: 13</span><span class="tag">textual: 10</span><span class="tag">rich: 5</span><span class="tag">dataclasses: 4</span><span class="tag">collections: 3</span><span class="tag">typer: 1</span><span class="tag">typing: 1</span><span class="tag">ast: 1</span><span class="tag">jinja2: 1</span><span class="tag">json: 1</span><span class="tag">sys: 1</span></section>
+</main>
+</body>
+</html>

@@ -36,7 +36,7 @@ def report(
 @app.command()
 def tui(path: Path = typer.Argument(Path("."), exists=True, file_okay=False)) -> None:
     try:
-        from tui import run_tui
+        from src.tui import run_tui
     except Exception as exc:
         console.print(f"TUI is unavailable: {exc}")
         raise typer.Exit(1)

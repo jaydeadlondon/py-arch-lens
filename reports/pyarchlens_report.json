@@ -1,0 +1,1107 @@
+{
+  "root": "/Users/worldpactleader/workflow/projects/py-arch-lens",
+  "graph": {
+    "nodes": 19,
+    "edges": 1,
+    "orphans": 17,
+    "cycles": 0
+  },
+  "cycles": [],
+  "orphans": [
+    "__init__",
+    "__main__",
+    "analyzer",
+    "config",
+    "formatting",
+    "graph",
+    "models",
+    "parser",
+    "reports",
+    "reports.html_report",
+    "reports.json_report",
+    "scanner",
+    "tests.conftest",
+    "tests.test_analyzer",
+    "tests.test_graph",
+    "tests.test_parser",
+    "tests.test_scanner"
+  ],
+  "external_imports": {
+    "src": 39,
+    "pathlib": 13,
+    "textual": 10,
+    "rich": 5,
+    "dataclasses": 4,
+    "collections": 3,
+    "typer": 1,
+    "typing": 1,
+    "ast": 1,
+    "jinja2": 1,
+    "json": 1,
+    "sys": 1
+  },
+  "top_complex_modules": [
+    [
+      "parser",
+      347
+    ],
+    [
+      "graph",
+      277
+    ],
+    [
+      "tui",
+      202
+    ],
+    [
+      "formatting",
+      103
+    ],
+    [
+      "analyzer",
+      95
+    ],
+    [
+      "scanner",
+      95
+    ],
+    [
+      "cli",
+      85
+    ],
+    [
+      "models",
+      78
+    ],
+    [
+      "reports.html_report",
+      54
+    ],
+    [
+      "config",
+      48
+    ]
+  ],
+  "modules": {
+    "__init__": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/__init__.py",
+      "package": "__init__",
+      "imports": [],
+      "classes": [],
+      "functions": [],
+      "methods": {},
+      "calls": [],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 0,
+        "code_lines": 0,
+        "import_count": 0,
+        "class_count": 0,
+        "function_count": 0,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 0,
+        "max_nesting": 0,
+        "complexity_score": 0
+      }
+    },
+    "__main__": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/__main__.py",
+      "package": "__main__",
+      "imports": [
+        "src.cli"
+      ],
+      "classes": [],
+      "functions": [],
+      "methods": {},
+      "calls": [
+        "app"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 3,
+        "code_lines": 2,
+        "import_count": 1,
+        "class_count": 0,
+        "function_count": 0,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 0,
+        "max_nesting": 0,
+        "complexity_score": 4
+      }
+    },
+    "analyzer": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/analyzer.py",
+      "package": "analyzer",
+      "imports": [
+        "collections",
+        "pathlib",
+        "src.config",
+        "src.graph",
+        "src.models",
+        "src.models",
+        "src.models",
+        "src.parser",
+        "src.scanner",
+        "src.scanner"
+      ],
+      "classes": [
+        "ArchitectureAnalyzer"
+      ],
+      "functions": [],
+      "methods": {
+        "ArchitectureAnalyzer": [
+          "__init__",
+          "analyze"
+        ]
+      },
+      "calls": [
+        "resolve",
+        "root.expanduser",
+        "ScanConfig",
+        "ProjectScanner",
+        "scanner.scan",
+        "module_name_from_path",
+        "ModuleParser",
+        "parser.parse",
+        "all_imports.extend",
+        "DependencyGraph.from_imports",
+        "set",
+        "Counter",
+        "edge.target.split",
+        "sorted",
+        "modules.items",
+        "AnalysisSummary",
+        "graph.cycles",
+        "graph.orphan_modules",
+        "dict",
+        "external_imports.most_common",
+        "graph.stats"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 48,
+        "code_lines": 45,
+        "import_count": 10,
+        "class_count": 1,
+        "function_count": 0,
+        "method_count": 2,
+        "async_function_count": 0,
+        "branch_count": 2,
+        "max_nesting": 3,
+        "complexity_score": 95
+      }
+    },
+    "cli": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/cli.py",
+      "package": "cli",
+      "imports": [
+        "pathlib",
+        "typer",
+        "rich.console",
+        "src.analyzer",
+        "src.formatting",
+        "src.formatting",
+        "src.formatting",
+        "src.formatting",
+        "src.reports.html_report",
+        "src.reports.json_report",
+        "tui"
+      ],
+      "classes": [],
+      "functions": [
+        "analyze",
+        "report",
+        "tui"
+      ],
+      "methods": {},
+      "calls": [
+        "typer.Typer",
+        "Console",
+        "typer.Argument",
+        "Path",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "console.print",
+        "summary_panel",
+        "console.print",
+        "module_table",
+        "console.print",
+        "cycle_table",
+        "console.print",
+        "external_table",
+        "app.command",
+        "typer.Argument",
+        "Path",
+        "typer.Option",
+        "Path",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "write_json_report",
+        "write_html_report",
+        "console.print",
+        "console.print",
+        "app.command",
+        "typer.Argument",
+        "Path",
+        "console.print",
+        "typer.Exit",
+        "run_tui",
+        "app.command"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 43,
+        "code_lines": 36,
+        "import_count": 11,
+        "class_count": 0,
+        "function_count": 3,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 2,
+        "max_nesting": 2,
+        "complexity_score": 85
+      }
+    },
+    "config": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/config.py",
+      "package": "config",
+      "imports": [
+        "dataclasses",
+        "dataclasses",
+        "pathlib"
+      ],
+      "classes": [
+        "ScanConfig"
+      ],
+      "functions": [],
+      "methods": {
+        "ScanConfig": [
+          "normalized_root"
+        ]
+      },
+      "calls": [
+        "field",
+        "field",
+        "resolve",
+        "self.root.expanduser"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 31,
+        "code_lines": 28,
+        "import_count": 3,
+        "class_count": 1,
+        "function_count": 0,
+        "method_count": 1,
+        "async_function_count": 0,
+        "branch_count": 0,
+        "max_nesting": 2,
+        "complexity_score": 48
+      }
+    },
+    "formatting": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/formatting.py",
+      "package": "formatting",
+      "imports": [
+        "rich.table",
+        "rich.panel",
+        "rich.text",
+        "src.models"
+      ],
+      "classes": [],
+      "functions": [
+        "summary_panel",
+        "module_table",
+        "cycle_table",
+        "external_table"
+      ],
+      "methods": {},
+      "calls": [
+        "Text",
+        "text.append",
+        "text.append",
+        "len",
+        "text.append",
+        "stats.get",
+        "text.append",
+        "len",
+        "text.append",
+        "len",
+        "text.append",
+        "len",
+        "Panel",
+        "Table",
+        "table.add_column",
+        "table.add_column",
+        "table.add_column",
+        "table.add_column",
+        "table.add_column",
+        "table.add_column",
+        "sorted",
+        "summary.modules.items",
+        "table.add_row",
+        "str",
+        "str",
+        "str",
+        "str",
+        "str",
+        "Table",
+        "table.add_column",
+        "table.add_column",
+        "table.add_row",
+        "enumerate",
+        "table.add_row",
+        "str",
+        "join",
+        "Table",
+        "table.add_column",
+        "table.add_column",
+        "table.add_row",
+        "summary.external_imports.items",
+        "table.add_row",
+        "str"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 58,
+        "code_lines": 50,
+        "import_count": 4,
+        "class_count": 0,
+        "function_count": 4,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 5,
+        "max_nesting": 2,
+        "complexity_score": 103
+      }
+    },
+    "graph": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/graph.py",
+      "package": "graph",
+      "imports": [
+        "collections",
+        "collections",
+        "src.models",
+        "src.models"
+      ],
+      "classes": [
+        "DependencyGraph"
+      ],
+      "functions": [
+        "closest_known_module"
+      ],
+      "methods": {
+        "DependencyGraph": [
+          "__init__",
+          "add_node",
+          "add_edge",
+          "from_imports",
+          "cycles",
+          "strongconnect",
+          "orphan_modules",
+          "topological_layers",
+          "stats"
+        ]
+      },
+      "calls": [
+        "set",
+        "defaultdict",
+        "defaultdict",
+        "self.nodes.add",
+        "self.edges.setdefault",
+        "set",
+        "self.reverse_edges.setdefault",
+        "set",
+        "self.add_node",
+        "self.add_node",
+        "add",
+        "add",
+        "cls",
+        "graph.add_node",
+        "closest_known_module",
+        "graph.add_edge",
+        "set",
+        "stack.append",
+        "on_stack.add",
+        "self.edges.get",
+        "set",
+        "strongconnect",
+        "min",
+        "min",
+        "stack.pop",
+        "on_stack.remove",
+        "component.append",
+        "len",
+        "self.edges.get",
+        "set",
+        "result.append",
+        "Cycle",
+        "sorted",
+        "sorted",
+        "strongconnect",
+        "sorted",
+        "len",
+        "sorted",
+        "len",
+        "deque",
+        "sorted",
+        "indegree.items",
+        "set",
+        "list",
+        "queue.clear",
+        "layers.append",
+        "visited.add",
+        "sorted",
+        "queue.append",
+        "sorted",
+        "layers.append",
+        "sum",
+        "len",
+        "self.edges.values",
+        "len",
+        "len",
+        "self.orphan_modules",
+        "len",
+        "self.cycles",
+        "target.split",
+        "join",
+        "parts.pop"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 118,
+        "code_lines": 105,
+        "import_count": 4,
+        "class_count": 1,
+        "function_count": 1,
+        "method_count": 9,
+        "async_function_count": 0,
+        "branch_count": 23,
+        "max_nesting": 6,
+        "complexity_score": 277
+      }
+    },
+    "models": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/models.py",
+      "package": "models",
+      "imports": [
+        "dataclasses",
+        "dataclasses",
+        "pathlib",
+        "typing"
+      ],
+      "classes": [
+        "ImportEdge",
+        "ModuleMetrics",
+        "ModuleInfo",
+        "Cycle",
+        "AnalysisSummary"
+      ],
+      "functions": [],
+      "methods": {
+        "ImportEdge": [],
+        "ModuleMetrics": [],
+        "ModuleInfo": [],
+        "Cycle": [],
+        "AnalysisSummary": []
+      },
+      "calls": [
+        "dataclass",
+        "field",
+        "field",
+        "field",
+        "field",
+        "field",
+        "field"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 56,
+        "code_lines": 46,
+        "import_count": 4,
+        "class_count": 5,
+        "function_count": 0,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 0,
+        "max_nesting": 1,
+        "complexity_score": 78
+      }
+    },
+    "parser": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/parser.py",
+      "package": "parser",
+      "imports": [
+        "ast",
+        "pathlib",
+        "src.models",
+        "src.models",
+        "src.models",
+        "src.scanner",
+        "src.scanner"
+      ],
+      "classes": [
+        "ModuleParser",
+        "_AstVisitor"
+      ],
+      "functions": [],
+      "methods": {
+        "ModuleParser": [
+          "__init__",
+          "parse",
+          "_count_code_lines",
+          "_complexity"
+        ],
+        "_AstVisitor": [
+          "__init__",
+          "visit_Import",
+          "visit_ImportFrom",
+          "visit_ClassDef",
+          "visit_FunctionDef",
+          "visit_AsyncFunctionDef",
+          "visit_If",
+          "visit_For",
+          "visit_AsyncFor",
+          "visit_While",
+          "visit_Try",
+          "visit_Match",
+          "visit_BoolOp",
+          "visit_Call",
+          "_visit_nested",
+          "_call_name",
+          "_resolve_from_import",
+          "_is_external"
+        ]
+      },
+      "calls": [
+        "root.resolve",
+        "name.split",
+        "module_name_from_path",
+        "ModuleInfo",
+        "package_name_from_module",
+        "path.read_text",
+        "len",
+        "text.splitlines",
+        "self._count_code_lines",
+        "ast.parse",
+        "str",
+        "_AstVisitor",
+        "visitor.visit",
+        "len",
+        "len",
+        "len",
+        "sum",
+        "len",
+        "info.methods.values",
+        "self._complexity",
+        "text.splitlines",
+        "line.strip",
+        "stripped.startswith",
+        "self.imports.append",
+        "ImportEdge",
+        "self._is_external",
+        "self.generic_visit",
+        "self._resolve_from_import",
+        "self.imports.append",
+        "ImportEdge",
+        "self._is_external",
+        "self.generic_visit",
+        "self.classes.append",
+        "self.methods.setdefault",
+        "self._class_stack.append",
+        "self._visit_nested",
+        "self._class_stack.pop",
+        "append",
+        "self.methods.setdefault",
+        "self.functions.append",
+        "self._visit_nested",
+        "self.visit_FunctionDef",
+        "self._visit_nested",
+        "self._visit_nested",
+        "self._visit_nested",
+        "self._visit_nested",
+        "len",
+        "self._visit_nested",
+        "len",
+        "self._visit_nested",
+        "max",
+        "len",
+        "self.generic_visit",
+        "self._call_name",
+        "self.call_names.append",
+        "self.generic_visit",
+        "max",
+        "self.generic_visit",
+        "isinstance",
+        "isinstance",
+        "self._call_name",
+        "self.module_name.split",
+        "max",
+        "len",
+        "prefix.extend",
+        "module.split",
+        "join",
+        "target.split"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 194,
+        "code_lines": 170,
+        "import_count": 7,
+        "class_count": 2,
+        "function_count": 0,
+        "method_count": 22,
+        "async_function_count": 0,
+        "branch_count": 19,
+        "max_nesting": 4,
+        "complexity_score": 347
+      }
+    },
+    "reports": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/reports/__init__.py",
+      "package": "reports",
+      "imports": [],
+      "classes": [],
+      "functions": [],
+      "methods": {},
+      "calls": [],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 0,
+        "code_lines": 0,
+        "import_count": 0,
+        "class_count": 0,
+        "function_count": 0,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 0,
+        "max_nesting": 0,
+        "complexity_score": 0
+      }
+    },
+    "reports.html_report": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/reports/html_report.py",
+      "package": "reports",
+      "imports": [
+        "pathlib",
+        "jinja2",
+        "src.models"
+      ],
+      "classes": [],
+      "functions": [
+        "write_html_report"
+      ],
+      "methods": {},
+      "calls": [
+        "path.parent.mkdir",
+        "render",
+        "Template",
+        "sorted",
+        "summary.modules.items",
+        "path.write_text"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 44,
+        "code_lines": 41,
+        "import_count": 3,
+        "class_count": 0,
+        "function_count": 1,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 0,
+        "max_nesting": 1,
+        "complexity_score": 54
+      }
+    },
+    "reports.json_report": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/reports/json_report.py",
+      "package": "reports",
+      "imports": [
+        "json",
+        "pathlib",
+        "src.models"
+      ],
+      "classes": [],
+      "functions": [
+        "write_json_report"
+      ],
+      "methods": {},
+      "calls": [
+        "path.parent.mkdir",
+        "str",
+        "str",
+        "sorted",
+        "summary.modules.items",
+        "path.write_text",
+        "json.dumps"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 31,
+        "code_lines": 29,
+        "import_count": 3,
+        "class_count": 0,
+        "function_count": 1,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 0,
+        "max_nesting": 1,
+        "complexity_score": 42
+      }
+    },
+    "scanner": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/scanner.py",
+      "package": "scanner",
+      "imports": [
+        "pathlib",
+        "src.config"
+      ],
+      "classes": [
+        "ProjectScanner"
+      ],
+      "functions": [
+        "module_name_from_path",
+        "package_name_from_module"
+      ],
+      "methods": {
+        "ProjectScanner": [
+          "__init__",
+          "scan",
+          "_is_allowed"
+        ]
+      },
+      "calls": [
+        "root.rglob",
+        "self._is_allowed",
+        "files.append",
+        "sorted",
+        "path.relative_to",
+        "any",
+        "relative_to",
+        "path.resolve",
+        "root.resolve",
+        "list",
+        "relative.with_suffix",
+        "join",
+        "module_name.split"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 37,
+        "code_lines": 29,
+        "import_count": 2,
+        "class_count": 1,
+        "function_count": 2,
+        "method_count": 3,
+        "async_function_count": 0,
+        "branch_count": 6,
+        "max_nesting": 4,
+        "complexity_score": 95
+      }
+    },
+    "tests.conftest": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/tests/conftest.py",
+      "package": "tests",
+      "imports": [
+        "pathlib",
+        "sys"
+      ],
+      "classes": [],
+      "functions": [],
+      "methods": {},
+      "calls": [
+        "resolve",
+        "Path",
+        "str",
+        "sys.path.insert"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 10,
+        "code_lines": 8,
+        "import_count": 2,
+        "class_count": 0,
+        "function_count": 0,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 2,
+        "max_nesting": 2,
+        "complexity_score": 30
+      }
+    },
+    "tests.test_analyzer": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/tests/test_analyzer.py",
+      "package": "tests",
+      "imports": [
+        "pathlib",
+        "src.analyzer"
+      ],
+      "classes": [],
+      "functions": [
+        "test_analyzer_detects_cycle"
+      ],
+      "methods": {},
+      "calls": [
+        "pkg.mkdir",
+        "write_text",
+        "write_text",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "len",
+        "len"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 12,
+        "code_lines": 10,
+        "import_count": 2,
+        "class_count": 0,
+        "function_count": 1,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 0,
+        "max_nesting": 1,
+        "complexity_score": 21
+      }
+    },
+    "tests.test_graph": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/tests/test_graph.py",
+      "package": "tests",
+      "imports": [
+        "src.graph",
+        "src.graph",
+        "src.models"
+      ],
+      "classes": [],
+      "functions": [
+        "test_closest_known_module",
+        "test_cycle_detection",
+        "test_orphans"
+      ],
+      "methods": {},
+      "calls": [
+        "closest_known_module",
+        "ImportEdge",
+        "ImportEdge",
+        "ImportEdge",
+        "DependencyGraph.from_imports",
+        "graph.cycles",
+        "len",
+        "DependencyGraph",
+        "graph.add_node",
+        "graph.add_node",
+        "graph.add_edge",
+        "graph.orphan_modules"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 31,
+        "code_lines": 25,
+        "import_count": 3,
+        "class_count": 0,
+        "function_count": 3,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 0,
+        "max_nesting": 1,
+        "complexity_score": 44
+      }
+    },
+    "tests.test_parser": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/tests/test_parser.py",
+      "package": "tests",
+      "imports": [
+        "pathlib",
+        "src.parser"
+      ],
+      "classes": [],
+      "functions": [
+        "test_parser_collects_metrics"
+      ],
+      "methods": {},
+      "calls": [
+        "path.parent.mkdir",
+        "path.write_text",
+        "strip",
+        "ModuleParser",
+        "parser.parse"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 31,
+        "code_lines": 27,
+        "import_count": 2,
+        "class_count": 0,
+        "function_count": 1,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 0,
+        "max_nesting": 1,
+        "complexity_score": 38
+      }
+    },
+    "tests.test_scanner": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/tests/test_scanner.py",
+      "package": "tests",
+      "imports": [
+        "pathlib",
+        "src.scanner",
+        "src.scanner"
+      ],
+      "classes": [],
+      "functions": [
+        "test_module_name_from_regular_file",
+        "test_module_name_from_init_file",
+        "test_package_name_from_module"
+      ],
+      "methods": {},
+      "calls": [
+        "path.parent.mkdir",
+        "path.write_text",
+        "module_name_from_path",
+        "path.parent.mkdir",
+        "path.write_text",
+        "module_name_from_path",
+        "package_name_from_module"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 20,
+        "code_lines": 14,
+        "import_count": 3,
+        "class_count": 0,
+        "function_count": 3,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 0,
+        "max_nesting": 1,
+        "complexity_score": 33
+      }
+    },
+    "tui": {
+      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/tui.py",
+      "package": "tui",
+      "imports": [
+        "pathlib",
+        "src.analyzer",
+        "textual.app",
+        "textual.app",
+        "textual.containers",
+        "textual.containers",
+        "textual.widgets",
+        "textual.widgets",
+        "textual.widgets",
+        "textual.widgets",
+        "textual.widgets",
+        "textual.widgets",
+        "rich.console",
+        "src.formatting",
+        "src.formatting",
+        "src.formatting",
+        "src.formatting"
+      ],
+      "classes": [
+        "PyArchLensApp"
+      ],
+      "functions": [
+        "run_tui",
+        "_fallback_tui"
+      ],
+      "methods": {
+        "PyArchLensApp": [
+          "__init__",
+          "compose",
+          "on_mount",
+          "action_refresh",
+          "_stats_text",
+          "_fill_tables"
+        ]
+      },
+      "calls": [
+        "_fallback_tui",
+        "__init__",
+        "super",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "Header",
+        "Container",
+        "Static",
+        "self._stats_text",
+        "TabbedContent",
+        "TabPane",
+        "DataTable",
+        "TabPane",
+        "DataTable",
+        "TabPane",
+        "DataTable",
+        "Footer",
+        "self._fill_tables",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "self.query_one",
+        "stats.update",
+        "self._stats_text",
+        "self._fill_tables",
+        "len",
+        "stats.get",
+        "len",
+        "len",
+        "self.query_one",
+        "modules.clear",
+        "modules.add_columns",
+        "sorted",
+        "self.summary.modules.items",
+        "modules.add_row",
+        "str",
+        "str",
+        "str",
+        "str",
+        "str",
+        "self.query_one",
+        "cycles.clear",
+        "cycles.add_columns",
+        "enumerate",
+        "cycles.add_row",
+        "str",
+        "join",
+        "cycles.add_row",
+        "self.query_one",
+        "external.clear",
+        "external.add_columns",
+        "self.summary.external_imports.items",
+        "external.add_row",
+        "str",
+        "external.add_row",
+        "run",
+        "PyArchLensApp",
+        "Console",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "console.print",
+        "summary_panel",
+        "console.print",
+        "module_table",
+        "console.print",
+        "cycle_table",
+        "console.print",
+        "external_table"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 105,
+        "code_lines": 91,
+        "import_count": 17,
+        "class_count": 1,
+        "function_count": 2,
+        "method_count": 6,
+        "async_function_count": 0,
+        "branch_count": 7,
+        "max_nesting": 5,
+        "complexity_score": 202
+      }
+    }
+  }
+}
