@@ -1,6 +1,7 @@
 from pathlib import Path
 from jinja2 import Template
 from src.models import AnalysisSummary
+from src.rules import ValidationResult
 
 _TEMPLATE = """
 <!doctype html>
@@ -25,6 +26,7 @@ h1,h2{margin:0 0 16px}table{width:100%;border-collapse:collapse}th,td{padding:10
 <div class="card"><div>Cycles</div><div class="number {{ 'bad' if summary.cycles else 'good' }}">{{ summary.cycles|length }}</div></div>
 <div class="card"><div>Orphans</div><div class="number">{{ summary.orphan_modules|length }}</div></div>
 </section>
+<section><h2>Architecture rules</h2>{% if validation %}<div class="cards"><div class="card"><div>Errors</div><div class="number {{ 'bad' if validation.error_count else 'good' }}">{{ validation.error_count }}</div></div><div class="card"><div>Warnings</div><div class="number">{{ validation.warning_count }}</div></div></div>{% if validation.violations %}<table><tr><th>Severity</th><th>Code</th><th>Source</th><th>Target</th><th>Line</th><th>Message</th></tr>{% for item in validation.violations %}<tr><td>{{ item.severity }}</td><td>{{ item.code }}</td><td>{{ item.source }}</td><td>{{ item.target }}</td><td>{{ item.line or '-' }}</td><td>{{ item.message }}</td></tr>{% endfor %}</table>{% else %}<p class="good">No rule violations found.</p>{% endif %}{% else %}<p>No architecture rules were applied.</p>{% endif %}</section>
 <section><h2>Top complex modules</h2><table><tr><th>Module</th><th>Score</th></tr>{% for name, score in summary.top_complex_modules %}<tr><td>{{ name }}</td><td>{{ score }}</td></tr>{% endfor %}</table></section>
 <section><h2>Cycles</h2>{% if summary.cycles %}<table><tr><th>#</th><th>Modules</th></tr>{% for cycle in summary.cycles %}<tr><td>{{ loop.index }}</td><td>{{ cycle.nodes|join(' → ') }}</td></tr>{% endfor %}</table>{% else %}<p class="good">No cycles found.</p>{% endif %}</section>
 <section><h2>Modules</h2><table><tr><th>Module</th><th>Lines</th><th>Imports</th><th>Classes</th><th>Functions</th><th>Complexity</th></tr>{% for name, info in modules %}<tr><td>{{ name }}</td><td>{{ info.metrics.lines }}</td><td>{{ info.metrics.import_count }}</td><td>{{ info.metrics.class_count }}</td><td>{{ info.metrics.function_count + info.metrics.method_count }}</td><td>{{ info.metrics.complexity_score }}</td></tr>{% endfor %}</table></section>
@@ -35,10 +37,12 @@ h1,h2{margin:0 0 16px}table{width:100%;border-collapse:collapse}th,td{padding:10
 """
 
 
-def write_html_report(summary: AnalysisSummary, path: Path) -> Path:
+def write_html_report(
+    summary: AnalysisSummary, path: Path, validation: ValidationResult | None = None
+) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     html = Template(_TEMPLATE).render(
-        summary=summary, modules=sorted(summary.modules.items())
+        summary=summary, modules=sorted(summary.modules.items()), validation=validation
     )
     path.write_text(html, encoding="utf-8")
     return path

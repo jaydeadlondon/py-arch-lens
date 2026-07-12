@@ -1,9 +1,13 @@
 import json
 from pathlib import Path
 from src.models import AnalysisSummary
+from src.reports.check_report import validation_payload
+from src.rules import ValidationResult
 
 
-def write_json_report(summary: AnalysisSummary, path: Path) -> Path:
+def write_json_report(
+    summary: AnalysisSummary, path: Path, validation: ValidationResult | None = None
+) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "root": str(summary.root),
@@ -12,6 +16,7 @@ def write_json_report(summary: AnalysisSummary, path: Path) -> Path:
         "orphans": summary.orphan_modules,
         "external_imports": summary.external_imports,
         "top_complex_modules": summary.top_complex_modules,
+        "validation": validation_payload(validation) if validation else None,
         "modules": {
             name: {
                 "path": str(info.path),
