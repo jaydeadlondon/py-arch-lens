@@ -1,0 +1,47 @@
+layers:
+  - name: interface
+    modules:
+      - "src.cli"
+      - "src.tui"
+      - "src.formatting*"
+    may_depend_on:
+      - application
+      - reports
+      - rules
+      - core
+  - name: application
+    modules:
+      - "src.analyzer"
+    may_depend_on:
+      - core
+      - rules
+  - name: core
+    modules:
+      - "src.config"
+      - "src.scanner"
+      - "src.parser"
+      - "src.graph"
+      - "src.models"
+    may_depend_on: []
+  - name: reports
+    modules:
+      - "src.reports.*"
+    may_depend_on:
+      - core
+      - rules
+  - name: rules
+    modules:
+      - "src.rules"
+      - "src.validator"
+    may_depend_on:
+      - core
+
+forbidden_imports:
+  - source: "src.*"
+    target: "tests.*"
+    reason: "Runtime package must not import test modules"
+    severity: error
+
+ignore:
+  - source: "src.cli"
+    target: "src.tui"
