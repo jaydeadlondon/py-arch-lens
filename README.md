@@ -174,11 +174,6 @@ py-arch-lens/
 │       ├── html_report.py
 │       └── json_report.py
 ├── tests/
-    ├── conftest.py
-    ├── test_analyzer.py
-    ├── test_graph.py
-    ├── test_parser.py
-    ├── test_scanner.py
 ├── README.md
 ├── pyproject.toml
 └── .gitignore
@@ -234,3 +229,60 @@ Run the test suite:
 ```bash
 pytest -q
 ```
+
+## Architecture rules
+
+PyArchLens can validate a project against architecture rules stored in YAML.
+
+Example `pyarchlens.yml`:
+
+```yaml
+layers:
+  - name: interface
+    modules:
+      - "pyarchlens.cli"
+      - "pyarchlens.tui"
+    may_depend_on:
+      - application
+      - reports
+
+  - name: application
+    modules:
+      - "pyarchlens.analyzer"
+    may_depend_on:
+      - core
+
+  - name: core
+    modules:
+      - "pyarchlens.models"
+      - "pyarchlens.parser"
+      - "pyarchlens.scanner"
+      - "pyarchlens.graph"
+    may_depend_on: []
+
+forbidden_imports:
+  - source: "pyarchlens.*"
+    target: "tests.*"
+    reason: "Runtime package must not import test modules"
+    severity: error
+```
+
+Run architecture validation:
+
+```bash
+pyarchlens check . --config pyarchlens.yml
+```
+
+Write a machine-readable check report:
+
+```bash
+pyarchlens check . --config pyarchlens.yml --out reports/pyarchlens_check.json
+```
+
+Generate regular reports with validation results included:
+
+```bash
+pyarchlens report . --out reports --config pyarchlens.yml
+```
+
+The `check` command exits with code `1` when error-level violations are found, which makes it suitable for CI pipelines.
