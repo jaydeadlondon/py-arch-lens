@@ -1,30 +1,440 @@
-
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<title>PyArchLens Report</title>
-<style>
-body{font-family:Inter,Arial,sans-serif;margin:0;background:#0f172a;color:#e2e8f0}
-header{padding:32px;background:#111827;border-bottom:1px solid #334155}
-main{padding:24px;display:grid;gap:24px}
-section{background:#111827;border:1px solid #334155;border-radius:16px;padding:20px;box-shadow:0 20px 40px rgba(0,0,0,.25)}
-h1,h2{margin:0 0 16px}table{width:100%;border-collapse:collapse}th,td{padding:10px;border-bottom:1px solid #334155;text-align:left}th{color:#93c5fd}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}.card{background:#1e293b;border-radius:14px;padding:18px}.number{font-size:32px;font-weight:800;color:#38bdf8}.bad{color:#fb7185}.good{color:#34d399}.tag{display:inline-block;padding:4px 8px;border-radius:999px;background:#334155;margin:2px}
-</style>
-</head>
-<body>
-<header><h1>PyArchLens Report</h1><div>/Users/worldpactleader/workflow/projects/py-arch-lens</div></header>
-<main>
-<section class="cards">
-<div class="card"><div>Modules</div><div class="number">19</div></div>
-<div class="card"><div>Edges</div><div class="number">1</div></div>
-<div class="card"><div>Cycles</div><div class="number good">0</div></div>
-<div class="card"><div>Orphans</div><div class="number">17</div></div>
-</section>
-<section><h2>Top complex modules</h2><table><tr><th>Module</th><th>Score</th></tr><tr><td>parser</td><td>347</td></tr><tr><td>graph</td><td>277</td></tr><tr><td>tui</td><td>202</td></tr><tr><td>formatting</td><td>103</td></tr><tr><td>analyzer</td><td>95</td></tr><tr><td>scanner</td><td>95</td></tr><tr><td>cli</td><td>85</td></tr><tr><td>models</td><td>78</td></tr><tr><td>reports.html_report</td><td>54</td></tr><tr><td>config</td><td>48</td></tr></table></section>
-<section><h2>Cycles</h2><p class="good">No cycles found.</p></section>
-<section><h2>Modules</h2><table><tr><th>Module</th><th>Lines</th><th>Imports</th><th>Classes</th><th>Functions</th><th>Complexity</th></tr><tr><td>__init__</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>__main__</td><td>3</td><td>1</td><td>0</td><td>0</td><td>4</td></tr><tr><td>analyzer</td><td>48</td><td>10</td><td>1</td><td>2</td><td>95</td></tr><tr><td>cli</td><td>43</td><td>11</td><td>0</td><td>3</td><td>85</td></tr><tr><td>config</td><td>31</td><td>3</td><td>1</td><td>1</td><td>48</td></tr><tr><td>formatting</td><td>58</td><td>4</td><td>0</td><td>4</td><td>103</td></tr><tr><td>graph</td><td>118</td><td>4</td><td>1</td><td>10</td><td>277</td></tr><tr><td>models</td><td>56</td><td>4</td><td>5</td><td>0</td><td>78</td></tr><tr><td>parser</td><td>194</td><td>7</td><td>2</td><td>22</td><td>347</td></tr><tr><td>reports</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>reports.html_report</td><td>44</td><td>3</td><td>0</td><td>1</td><td>54</td></tr><tr><td>reports.json_report</td><td>31</td><td>3</td><td>0</td><td>1</td><td>42</td></tr><tr><td>scanner</td><td>37</td><td>2</td><td>1</td><td>5</td><td>95</td></tr><tr><td>tests.conftest</td><td>10</td><td>2</td><td>0</td><td>0</td><td>30</td></tr><tr><td>tests.test_analyzer</td><td>12</td><td>2</td><td>0</td><td>1</td><td>21</td></tr><tr><td>tests.test_graph</td><td>31</td><td>3</td><td>0</td><td>3</td><td>44</td></tr><tr><td>tests.test_parser</td><td>31</td><td>2</td><td>0</td><td>1</td><td>38</td></tr><tr><td>tests.test_scanner</td><td>20</td><td>3</td><td>0</td><td>3</td><td>33</td></tr><tr><td>tui</td><td>105</td><td>17</td><td>1</td><td>8</td><td>202</td></tr></table></section>
-<section><h2>External imports</h2><span class="tag">src: 39</span><span class="tag">pathlib: 13</span><span class="tag">textual: 10</span><span class="tag">rich: 5</span><span class="tag">dataclasses: 4</span><span class="tag">collections: 3</span><span class="tag">typer: 1</span><span class="tag">typing: 1</span><span class="tag">ast: 1</span><span class="tag">jinja2: 1</span><span class="tag">json: 1</span><span class="tag">sys: 1</span></section>
-</main>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>PyArchLens Report</title>
+    <style>
+      body {
+        font-family: Inter, Arial, sans-serif;
+        margin: 0;
+        background: #0f172a;
+        color: #e2e8f0;
+      }
+      header {
+        padding: 32px;
+        background: #111827;
+        border-bottom: 1px solid #334155;
+      }
+      main {
+        padding: 24px;
+        display: grid;
+        gap: 24px;
+      }
+      section {
+        background: #111827;
+        border: 1px solid #334155;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      }
+      h1,
+      h2 {
+        margin: 0 0 16px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 10px;
+        border-bottom: 1px solid #334155;
+        text-align: left;
+      }
+      th {
+        color: #93c5fd;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 16px;
+      }
+      .card {
+        background: #1e293b;
+        border-radius: 14px;
+        padding: 18px;
+      }
+      .number {
+        font-size: 32px;
+        font-weight: 800;
+        color: #38bdf8;
+      }
+      .bad {
+        color: #fb7185;
+      }
+      .good {
+        color: #34d399;
+      }
+      .tag {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: #334155;
+        margin: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>PyArchLens Report</h1>
+      <div>/home/user</div>
+    </header>
+    <main>
+      <section class="cards">
+        <div class="card">
+          <div>Modules</div>
+          <div class="number">24</div>
+        </div>
+        <div class="card">
+          <div>Edges</div>
+          <div class="number">41</div>
+        </div>
+        <div class="card">
+          <div>Cycles</div>
+          <div class="number good">0</div>
+        </div>
+        <div class="card">
+          <div>Orphans</div>
+          <div class="number">2</div>
+        </div>
+      </section>
+      <section>
+        <h2>Architecture rules</h2>
+        <div class="cards">
+          <div class="card">
+            <div>Errors</div>
+            <div class="number bad">1</div>
+          </div>
+          <div class="card">
+            <div>Warnings</div>
+            <div class="number">0</div>
+          </div>
+        </div>
+        <table>
+          <tr>
+            <th>Severity</th>
+            <th>Code</th>
+            <th>Source</th>
+            <th>Target</th>
+            <th>Line</th>
+            <th>Message</th>
+          </tr>
+          <tr>
+            <td>error</td>
+            <td>layer_violation</td>
+            <td>pyarchlens.formatting</td>
+            <td>pyarchlens.models</td>
+            <td>4</td>
+            <td>
+              pyarchlens.formatting imports pyarchlens.models, crossing from
+              interface to forbidden layer core
+            </td>
+          </tr>
+        </table>
+      </section>
+      <section>
+        <h2>Top complex modules</h2>
+        <table>
+          <tr>
+            <th>Module</th>
+            <th>Score</th>
+          </tr>
+          <tr>
+            <td>pyarchlens.parser</td>
+            <td>327</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.graph</td>
+            <td>271</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.validator</td>
+            <td>202</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.tui</td>
+            <td>186</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.rules</td>
+            <td>156</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.cli</td>
+            <td>126</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.formatting</td>
+            <td>103</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.scanner</td>
+            <td>95</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.analyzer</td>
+            <td>88</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.models</td>
+            <td>78</td>
+          </tr>
+        </table>
+      </section>
+      <section>
+        <h2>Cycles</h2>
+        <p class="good">No cycles found.</p>
+      </section>
+      <section>
+        <h2>Modules</h2>
+        <table>
+          <tr>
+            <th>Module</th>
+            <th>Lines</th>
+            <th>Imports</th>
+            <th>Classes</th>
+            <th>Functions</th>
+            <th>Complexity</th>
+          </tr>
+          <tr>
+            <td>pyarchlens</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.__main__</td>
+            <td>3</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.analyzer</td>
+            <td>41</td>
+            <td>10</td>
+            <td>1</td>
+            <td>2</td>
+            <td>88</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.cli</td>
+            <td>61</td>
+            <td>15</td>
+            <td>0</td>
+            <td>4</td>
+            <td>126</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.config</td>
+            <td>29</td>
+            <td>3</td>
+            <td>1</td>
+            <td>1</td>
+            <td>46</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.formatting</td>
+            <td>58</td>
+            <td>4</td>
+            <td>0</td>
+            <td>4</td>
+            <td>103</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.formatting_rules</td>
+            <td>17</td>
+            <td>2</td>
+            <td>0</td>
+            <td>1</td>
+            <td>45</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.graph</td>
+            <td>112</td>
+            <td>4</td>
+            <td>1</td>
+            <td>10</td>
+            <td>271</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.models</td>
+            <td>56</td>
+            <td>4</td>
+            <td>5</td>
+            <td>0</td>
+            <td>78</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.parser</td>
+            <td>174</td>
+            <td>7</td>
+            <td>2</td>
+            <td>22</td>
+            <td>327</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.reports</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.reports.check_report</td>
+            <td>31</td>
+            <td>3</td>
+            <td>0</td>
+            <td>2</td>
+            <td>43</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.reports.html_report</td>
+            <td>45</td>
+            <td>4</td>
+            <td>0</td>
+            <td>1</td>
+            <td>56</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.reports.json_report</td>
+            <td>34</td>
+            <td>5</td>
+            <td>0</td>
+            <td>1</td>
+            <td>49</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.rules</td>
+            <td>103</td>
+            <td>6</td>
+            <td>6</td>
+            <td>6</td>
+            <td>156</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.scanner</td>
+            <td>37</td>
+            <td>2</td>
+            <td>1</td>
+            <td>5</td>
+            <td>95</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.tui</td>
+            <td>88</td>
+            <td>17</td>
+            <td>1</td>
+            <td>8</td>
+            <td>186</td>
+          </tr>
+          <tr>
+            <td>pyarchlens.validator</td>
+            <td>71</td>
+            <td>6</td>
+            <td>1</td>
+            <td>6</td>
+            <td>202</td>
+          </tr>
+          <tr>
+            <td>tests.test_analyzer</td>
+            <td>12</td>
+            <td>2</td>
+            <td>0</td>
+            <td>1</td>
+            <td>21</td>
+          </tr>
+          <tr>
+            <td>tests.test_graph</td>
+            <td>26</td>
+            <td>3</td>
+            <td>0</td>
+            <td>3</td>
+            <td>39</td>
+          </tr>
+          <tr>
+            <td>tests.test_parser</td>
+            <td>28</td>
+            <td>2</td>
+            <td>0</td>
+            <td>1</td>
+            <td>35</td>
+          </tr>
+          <tr>
+            <td>tests.test_rules</td>
+            <td>18</td>
+            <td>2</td>
+            <td>0</td>
+            <td>2</td>
+            <td>28</td>
+          </tr>
+          <tr>
+            <td>tests.test_scanner</td>
+            <td>20</td>
+            <td>3</td>
+            <td>0</td>
+            <td>3</td>
+            <td>33</td>
+          </tr>
+          <tr>
+            <td>tests.test_validator</td>
+            <td>35</td>
+            <td>4</td>
+            <td>0</td>
+            <td>2</td>
+            <td>49</td>
+          </tr>
+        </table>
+      </section>
+      <section>
+        <h2>External imports</h2>
+        <span class="tag">pathlib: 15</span><span class="tag">textual: 10</span
+        ><span class="tag">rich: 6</span><span class="tag">dataclasses: 6</span
+        ><span class="tag">collections: 3</span
+        ><span class="tag">typing: 2</span><span class="tag">json: 2</span
+        ><span class="tag">typer: 1</span><span class="tag">ast: 1</span
+        ><span class="tag">jinja2: 1</span><span class="tag">fnmatch: 1</span
+        ><span class="tag">yaml: 1</span>
+      </section>
+    </main>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'a1babd79db269752',t:'MTc4NDEzOTE5Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
 </html>
