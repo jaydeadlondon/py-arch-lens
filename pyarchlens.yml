@@ -8,6 +8,7 @@ layers:
       - application
       - reports
       - rules
+      - queries
       - core
   - name: application
     modules:
@@ -15,6 +16,11 @@ layers:
     may_depend_on:
       - core
       - rules
+  - name: queries
+    modules:
+      - "src.dependency_queries"
+    may_depend_on:
+      - core
   - name: core
     modules:
       - "src.config"
@@ -29,6 +35,7 @@ layers:
     may_depend_on:
       - core
       - rules
+      - queries
   - name: rules
     modules:
       - "src.rules"
