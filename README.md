@@ -240,28 +240,28 @@ Example `pyarchlens.yml`:
 layers:
   - name: interface
     modules:
-      - "pyarchlens.cli"
-      - "pyarchlens.tui"
+      - "src.cli"
+      - "src.tui"
     may_depend_on:
       - application
       - reports
 
   - name: application
     modules:
-      - "pyarchlens.analyzer"
+      - "src.analyzer"
     may_depend_on:
       - core
 
   - name: core
     modules:
-      - "pyarchlens.models"
-      - "pyarchlens.parser"
-      - "pyarchlens.scanner"
-      - "pyarchlens.graph"
+      - "src.models"
+      - "src.parser"
+      - "src.scanner"
+      - "src.graph"
     may_depend_on: []
 
 forbidden_imports:
-  - source: "pyarchlens.*"
+  - source: "src.*"
     target: "tests.*"
     reason: "Runtime package must not import test modules"
     severity: error
@@ -286,3 +286,69 @@ pyarchlens report . --out reports --config pyarchlens.yml
 ```
 
 The `check` command exits with code `1` when error-level violations are found, which makes it suitable for CI pipelines.
+
+### Find a dependency path
+
+```bash
+pyarchlens path . pyarchlens.cli pyarchlens.analyzer
+```
+
+Example output:
+
+```text
+pyarchlens.cli -> pyarchlens.analyzer
+```
+
+If no path exists, the command exits with code `1`.
+
+### Inspect one module
+
+```bash
+pyarchlens module . pyarchlens.cli
+```
+
+This prints:
+
+- file path
+- line count
+- complexity score
+- incoming dependency count
+- outgoing dependency count
+- classes
+- functions
+- internal imports
+- modules that import it
+- external imports
+
+### Export a Mermaid graph
+
+```bash
+pyarchlens mermaid . --out reports/dependencies.mmd
+```
+
+The generated `.mmd` file can be pasted into Mermaid-compatible tools or Markdown renderers.
+
+### Enhanced TUI
+
+The TUI now includes:
+
+- module filtering
+- module detail panel
+- incoming and outgoing dependency counts
+- dependency graph text view
+- cycle table
+- external import table
+- refresh action
+
+Run it with:
+
+```bash
+pyarchlens tui .
+```
+
+Controls:
+
+```text
+q  Quit
+r  Refresh analysis
+```
