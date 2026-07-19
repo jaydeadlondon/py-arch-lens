@@ -83,11 +83,11 @@
       <section class="cards">
         <div class="card">
           <div>Modules</div>
-          <div class="number">24</div>
+          <div class="number">28</div>
         </div>
         <div class="card">
           <div>Edges</div>
-          <div class="number">41</div>
+          <div class="number">52</div>
         </div>
         <div class="card">
           <div>Cycles</div>
@@ -103,34 +103,14 @@
         <div class="cards">
           <div class="card">
             <div>Errors</div>
-            <div class="number bad">1</div>
+            <div class="number good">0</div>
           </div>
           <div class="card">
             <div>Warnings</div>
             <div class="number">0</div>
           </div>
         </div>
-        <table>
-          <tr>
-            <th>Severity</th>
-            <th>Code</th>
-            <th>Source</th>
-            <th>Target</th>
-            <th>Line</th>
-            <th>Message</th>
-          </tr>
-          <tr>
-            <td>error</td>
-            <td>layer_violation</td>
-            <td>pyarchlens.formatting</td>
-            <td>pyarchlens.models</td>
-            <td>4</td>
-            <td>
-              pyarchlens.formatting imports pyarchlens.models, crossing from
-              interface to forbidden layer core
-            </td>
-          </tr>
-        </table>
+        <p class="good">No rule violations found.</p>
       </section>
       <section>
         <h2>Top complex modules</h2>
@@ -140,44 +120,44 @@
             <th>Score</th>
           </tr>
           <tr>
-            <td>pyarchlens.parser</td>
+            <td>src.parser</td>
             <td>327</td>
           </tr>
           <tr>
-            <td>pyarchlens.graph</td>
+            <td>src.tui</td>
+            <td>297</td>
+          </tr>
+          <tr>
+            <td>src.graph</td>
             <td>271</td>
           </tr>
           <tr>
-            <td>pyarchlens.validator</td>
+            <td>src.dependency_queries</td>
+            <td>213</td>
+          </tr>
+          <tr>
+            <td>src.cli</td>
+            <td>210</td>
+          </tr>
+          <tr>
+            <td>src.validator</td>
             <td>202</td>
           </tr>
           <tr>
-            <td>pyarchlens.tui</td>
-            <td>186</td>
-          </tr>
-          <tr>
-            <td>pyarchlens.rules</td>
+            <td>src.rules</td>
             <td>156</td>
           </tr>
           <tr>
-            <td>pyarchlens.cli</td>
-            <td>126</td>
-          </tr>
-          <tr>
-            <td>pyarchlens.formatting</td>
+            <td>src.formatting</td>
             <td>103</td>
           </tr>
           <tr>
-            <td>pyarchlens.scanner</td>
+            <td>src.scanner</td>
             <td>95</td>
           </tr>
           <tr>
-            <td>pyarchlens.analyzer</td>
+            <td>src.analyzer</td>
             <td>88</td>
-          </tr>
-          <tr>
-            <td>pyarchlens.models</td>
-            <td>78</td>
           </tr>
         </table>
       </section>
@@ -197,7 +177,7 @@
             <th>Complexity</th>
           </tr>
           <tr>
-            <td>pyarchlens</td>
+            <td>src</td>
             <td>1</td>
             <td>0</td>
             <td>0</td>
@@ -205,7 +185,7 @@
             <td>1</td>
           </tr>
           <tr>
-            <td>pyarchlens.__main__</td>
+            <td>src.__main__</td>
             <td>3</td>
             <td>1</td>
             <td>0</td>
@@ -213,7 +193,7 @@
             <td>4</td>
           </tr>
           <tr>
-            <td>pyarchlens.analyzer</td>
+            <td>src.analyzer</td>
             <td>41</td>
             <td>10</td>
             <td>1</td>
@@ -221,15 +201,15 @@
             <td>88</td>
           </tr>
           <tr>
-            <td>pyarchlens.cli</td>
-            <td>61</td>
-            <td>15</td>
+            <td>src.cli</td>
+            <td>101</td>
+            <td>18</td>
             <td>0</td>
-            <td>4</td>
-            <td>126</td>
+            <td>7</td>
+            <td>210</td>
           </tr>
           <tr>
-            <td>pyarchlens.config</td>
+            <td>src.config</td>
             <td>29</td>
             <td>3</td>
             <td>1</td>
@@ -237,7 +217,15 @@
             <td>46</td>
           </tr>
           <tr>
-            <td>pyarchlens.formatting</td>
+            <td>src.dependency_queries</td>
+            <td>99</td>
+            <td>6</td>
+            <td>2</td>
+            <td>7</td>
+            <td>213</td>
+          </tr>
+          <tr>
+            <td>src.formatting</td>
             <td>58</td>
             <td>4</td>
             <td>0</td>
@@ -245,7 +233,7 @@
             <td>103</td>
           </tr>
           <tr>
-            <td>pyarchlens.formatting_rules</td>
+            <td>src.formatting_rules</td>
             <td>17</td>
             <td>2</td>
             <td>0</td>
@@ -253,7 +241,7 @@
             <td>45</td>
           </tr>
           <tr>
-            <td>pyarchlens.graph</td>
+            <td>src.graph</td>
             <td>112</td>
             <td>4</td>
             <td>1</td>
@@ -261,7 +249,7 @@
             <td>271</td>
           </tr>
           <tr>
-            <td>pyarchlens.models</td>
+            <td>src.models</td>
             <td>56</td>
             <td>4</td>
             <td>5</td>
@@ -269,7 +257,7 @@
             <td>78</td>
           </tr>
           <tr>
-            <td>pyarchlens.parser</td>
+            <td>src.parser</td>
             <td>174</td>
             <td>7</td>
             <td>2</td>
@@ -277,7 +265,7 @@
             <td>327</td>
           </tr>
           <tr>
-            <td>pyarchlens.reports</td>
+            <td>src.reports</td>
             <td>0</td>
             <td>0</td>
             <td>0</td>
@@ -285,7 +273,7 @@
             <td>0</td>
           </tr>
           <tr>
-            <td>pyarchlens.reports.check_report</td>
+            <td>src.reports.check_report</td>
             <td>31</td>
             <td>3</td>
             <td>0</td>
@@ -293,7 +281,7 @@
             <td>43</td>
           </tr>
           <tr>
-            <td>pyarchlens.reports.html_report</td>
+            <td>src.reports.html_report</td>
             <td>45</td>
             <td>4</td>
             <td>0</td>
@@ -301,7 +289,7 @@
             <td>56</td>
           </tr>
           <tr>
-            <td>pyarchlens.reports.json_report</td>
+            <td>src.reports.json_report</td>
             <td>34</td>
             <td>5</td>
             <td>0</td>
@@ -309,7 +297,15 @@
             <td>49</td>
           </tr>
           <tr>
-            <td>pyarchlens.rules</td>
+            <td>src.reports.mermaid_report</td>
+            <td>27</td>
+            <td>4</td>
+            <td>0</td>
+            <td>3</td>
+            <td>65</td>
+          </tr>
+          <tr>
+            <td>src.rules</td>
             <td>103</td>
             <td>6</td>
             <td>6</td>
@@ -317,7 +313,7 @@
             <td>156</td>
           </tr>
           <tr>
-            <td>pyarchlens.scanner</td>
+            <td>src.scanner</td>
             <td>37</td>
             <td>2</td>
             <td>1</td>
@@ -325,15 +321,15 @@
             <td>95</td>
           </tr>
           <tr>
-            <td>pyarchlens.tui</td>
-            <td>88</td>
-            <td>17</td>
+            <td>src.tui</td>
+            <td>144</td>
+            <td>20</td>
             <td>1</td>
-            <td>8</td>
-            <td>186</td>
+            <td>14</td>
+            <td>297</td>
           </tr>
           <tr>
-            <td>pyarchlens.validator</td>
+            <td>src.validator</td>
             <td>71</td>
             <td>6</td>
             <td>1</td>
@@ -349,12 +345,28 @@
             <td>21</td>
           </tr>
           <tr>
+            <td>tests.test_dependency_queries</td>
+            <td>29</td>
+            <td>6</td>
+            <td>0</td>
+            <td>2</td>
+            <td>47</td>
+          </tr>
+          <tr>
             <td>tests.test_graph</td>
             <td>26</td>
             <td>3</td>
             <td>0</td>
             <td>3</td>
             <td>39</td>
+          </tr>
+          <tr>
+            <td>tests.test_mermaid_report</td>
+            <td>26</td>
+            <td>4</td>
+            <td>0</td>
+            <td>2</td>
+            <td>40</td>
           </tr>
           <tr>
             <td>tests.test_parser</td>
@@ -392,49 +404,14 @@
       </section>
       <section>
         <h2>External imports</h2>
-        <span class="tag">pathlib: 15</span><span class="tag">textual: 10</span
-        ><span class="tag">rich: 6</span><span class="tag">dataclasses: 6</span
-        ><span class="tag">collections: 3</span
+        <span class="tag">pathlib: 18</span><span class="tag">textual: 10</span
+        ><span class="tag">dataclasses: 7</span><span class="tag">rich: 6</span
+        ><span class="tag">collections: 4</span
         ><span class="tag">typing: 2</span><span class="tag">json: 2</span
         ><span class="tag">typer: 1</span><span class="tag">ast: 1</span
-        ><span class="tag">jinja2: 1</span><span class="tag">fnmatch: 1</span
-        ><span class="tag">yaml: 1</span>
+        ><span class="tag">jinja2: 1</span><span class="tag">re: 1</span
+        ><span class="tag">fnmatch: 1</span><span class="tag">yaml: 1</span>
       </section>
     </main>
-    <script>
-      (function () {
-        function c() {
-          var b = a.contentDocument || a.contentWindow.document;
-          if (b) {
-            var d = b.createElement("script");
-            d.innerHTML =
-              "window.__CF$cv$params={r:'a1babd79db269752',t:'MTc4NDEzOTE5Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
-            b.getElementsByTagName("head")[0].appendChild(d);
-          }
-        }
-        if (document.body) {
-          var a = document.createElement("iframe");
-          a.height = 1;
-          a.width = 1;
-          a.style.position = "absolute";
-          a.style.top = 0;
-          a.style.left = 0;
-          a.style.border = "none";
-          a.style.visibility = "hidden";
-          document.body.appendChild(a);
-          if ("loading" !== document.readyState) c();
-          else if (window.addEventListener)
-            document.addEventListener("DOMContentLoaded", c);
-          else {
-            var e = document.onreadystatechange || function () {};
-            document.onreadystatechange = function (b) {
-              e(b);
-              "loading" !== document.readyState &&
-                ((document.onreadystatechange = e), c());
-            };
-          }
-        }
-      })();
-    </script>
   </body>
 </html>

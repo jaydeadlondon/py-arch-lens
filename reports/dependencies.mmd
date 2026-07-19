@@ -1,0 +1,81 @@
+flowchart LR
+    m_src["src"]
+    m_src___main__["src.__main__"]
+    m_src_analyzer["src.analyzer"]
+    m_src_cli["src.cli"]
+    m_src_config["src.config"]
+    m_src_dependency_queries["src.dependency_queries"]
+    m_src_formatting["src.formatting"]
+    m_src_formatting_rules["src.formatting_rules"]
+    m_src_graph["src.graph"]
+    m_src_models["src.models"]
+    m_src_parser["src.parser"]
+    m_src_reports["src.reports"]
+    m_src_reports_check_report["src.reports.check_report"]
+    m_src_reports_html_report["src.reports.html_report"]
+    m_src_reports_json_report["src.reports.json_report"]
+    m_src_reports_mermaid_report["src.reports.mermaid_report"]
+    m_src_rules["src.rules"]
+    m_src_scanner["src.scanner"]
+    m_src_tui["src.tui"]
+    m_src_validator["src.validator"]
+    m_tests_test_analyzer["tests.test_analyzer"]
+    m_tests_test_dependency_queries["tests.test_dependency_queries"]
+    m_tests_test_graph["tests.test_graph"]
+    m_tests_test_mermaid_report["tests.test_mermaid_report"]
+    m_tests_test_parser["tests.test_parser"]
+    m_tests_test_rules["tests.test_rules"]
+    m_tests_test_scanner["tests.test_scanner"]
+    m_tests_test_validator["tests.test_validator"]
+    m_src___main__ --> m_src_cli
+    m_src_analyzer --> m_src_config
+    m_src_analyzer --> m_src_graph
+    m_src_analyzer --> m_src_models
+    m_src_analyzer --> m_src_parser
+    m_src_analyzer --> m_src_scanner
+    m_src_cli --> m_src_analyzer
+    m_src_cli --> m_src_dependency_queries
+    m_src_cli --> m_src_formatting
+    m_src_cli --> m_src_formatting_rules
+    m_src_cli --> m_src_reports_check_report
+    m_src_cli --> m_src_reports_html_report
+    m_src_cli --> m_src_reports_json_report
+    m_src_cli --> m_src_reports_mermaid_report
+    m_src_cli --> m_src_rules
+    m_src_cli --> m_src_tui
+    m_src_cli --> m_src_validator
+    m_src_dependency_queries --> m_src_graph
+    m_src_dependency_queries --> m_src_models
+    m_src_formatting --> m_src_models
+    m_src_formatting_rules --> m_src_rules
+    m_src_graph --> m_src_models
+    m_src_parser --> m_src_models
+    m_src_parser --> m_src_scanner
+    m_src_reports_check_report --> m_src_rules
+    m_src_reports_html_report --> m_src_models
+    m_src_reports_html_report --> m_src_rules
+    m_src_reports_json_report --> m_src_models
+    m_src_reports_json_report --> m_src_reports_check_report
+    m_src_reports_json_report --> m_src_rules
+    m_src_reports_mermaid_report --> m_src_dependency_queries
+    m_src_reports_mermaid_report --> m_src_models
+    m_src_scanner --> m_src_config
+    m_src_tui --> m_src_analyzer
+    m_src_tui --> m_src_dependency_queries
+    m_src_tui --> m_src_formatting
+    m_src_validator --> m_src_graph
+    m_src_validator --> m_src_models
+    m_src_validator --> m_src_rules
+    m_tests_test_analyzer --> m_src_analyzer
+    m_tests_test_dependency_queries --> m_src_analyzer
+    m_tests_test_dependency_queries --> m_src_dependency_queries
+    m_tests_test_graph --> m_src_graph
+    m_tests_test_graph --> m_src_models
+    m_tests_test_mermaid_report --> m_src_analyzer
+    m_tests_test_mermaid_report --> m_src_reports_mermaid_report
+    m_tests_test_parser --> m_src_parser
+    m_tests_test_rules --> m_src_rules
+    m_tests_test_scanner --> m_src_scanner
+    m_tests_test_validator --> m_src_analyzer
+    m_tests_test_validator --> m_src_rules
+    m_tests_test_validator --> m_src_validator

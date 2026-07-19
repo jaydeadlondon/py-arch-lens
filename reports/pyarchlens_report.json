@@ -1,91 +1,83 @@
 {
-  "root": "/Users/worldpactleader/workflow/projects/py-arch-lens",
+  "root": "/home/user",
   "graph": {
-    "nodes": 19,
-    "edges": 1,
-    "orphans": 17,
+    "nodes": 28,
+    "edges": 52,
+    "orphans": 2,
     "cycles": 0
   },
   "cycles": [],
   "orphans": [
-    "__init__",
-    "__main__",
-    "analyzer",
-    "config",
-    "formatting",
-    "graph",
-    "models",
-    "parser",
-    "reports",
-    "reports.html_report",
-    "reports.json_report",
-    "scanner",
-    "tests.conftest",
-    "tests.test_analyzer",
-    "tests.test_graph",
-    "tests.test_parser",
-    "tests.test_scanner"
+    "src",
+    "src.reports"
   ],
   "external_imports": {
-    "src": 39,
-    "pathlib": 13,
+    "pathlib": 18,
     "textual": 10,
-    "rich": 5,
-    "dataclasses": 4,
-    "collections": 3,
+    "dataclasses": 7,
+    "rich": 6,
+    "collections": 4,
+    "typing": 2,
+    "json": 2,
     "typer": 1,
-    "typing": 1,
     "ast": 1,
     "jinja2": 1,
-    "json": 1,
-    "sys": 1
+    "re": 1,
+    "fnmatch": 1,
+    "yaml": 1
   },
   "top_complex_modules": [
     [
-      "parser",
-      347
+      "src.parser",
+      327
     ],
     [
-      "graph",
-      277
+      "src.tui",
+      297
     ],
     [
-      "tui",
+      "src.graph",
+      271
+    ],
+    [
+      "src.dependency_queries",
+      213
+    ],
+    [
+      "src.cli",
+      210
+    ],
+    [
+      "src.validator",
       202
     ],
     [
-      "formatting",
+      "src.rules",
+      156
+    ],
+    [
+      "src.formatting",
       103
     ],
     [
-      "analyzer",
+      "src.scanner",
       95
     ],
     [
-      "scanner",
-      95
-    ],
-    [
-      "cli",
-      85
-    ],
-    [
-      "models",
-      78
-    ],
-    [
-      "reports.html_report",
-      54
-    ],
-    [
-      "config",
-      48
+      "src.analyzer",
+      88
     ]
   ],
+  "validation": {
+    "ok": true,
+    "errors": 0,
+    "warnings": 0,
+    "violations": []
+  },
   "modules": {
-    "__init__": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/__init__.py",
-      "package": "__init__",
+    "src": {
+      "path": "/home/user/src/__init__.py",
+      "package": "src",
       "imports": [],
       "classes": [],
       "functions": [],
@@ -93,8 +85,8 @@
       "calls": [],
       "syntax_error": null,
       "metrics": {
-        "lines": 0,
-        "code_lines": 0,
+        "lines": 1,
+        "code_lines": 1,
         "import_count": 0,
         "class_count": 0,
         "function_count": 0,
@@ -102,12 +94,12 @@
         "async_function_count": 0,
         "branch_count": 0,
         "max_nesting": 0,
-        "complexity_score": 0
+        "complexity_score": 1
       }
     },
-    "__main__": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/__main__.py",
-      "package": "__main__",
+    "src.__main__": {
+      "path": "/home/user/src/__main__.py",
+      "package": "src",
       "imports": [
         "src.cli"
       ],
@@ -131,9 +123,9 @@
         "complexity_score": 4
       }
     },
-    "analyzer": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/analyzer.py",
-      "package": "analyzer",
+    "src.analyzer": {
+      "path": "/home/user/src/analyzer.py",
+      "package": "src",
       "imports": [
         "collections",
         "pathlib",
@@ -181,8 +173,8 @@
       ],
       "syntax_error": null,
       "metrics": {
-        "lines": 48,
-        "code_lines": 45,
+        "lines": 41,
+        "code_lines": 38,
         "import_count": 10,
         "class_count": 1,
         "function_count": 0,
@@ -190,12 +182,12 @@
         "async_function_count": 0,
         "branch_count": 2,
         "max_nesting": 3,
-        "complexity_score": 95
+        "complexity_score": 88
       }
     },
-    "cli": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/cli.py",
-      "package": "cli",
+    "src.cli": {
+      "path": "/home/user/src/cli.py",
+      "package": "src",
       "imports": [
         "pathlib",
         "typer",
@@ -205,14 +197,25 @@
         "src.formatting",
         "src.formatting",
         "src.formatting",
+        "src.formatting_rules",
         "src.reports.html_report",
         "src.reports.json_report",
-        "tui"
+        "src.reports.check_report",
+        "src.rules",
+        "src.validator",
+        "src.dependency_queries",
+        "src.dependency_queries",
+        "src.reports.mermaid_report",
+        "src.tui"
       ],
       "classes": [],
       "functions": [
         "analyze",
         "report",
+        "check",
+        "path",
+        "module",
+        "mermaid",
         "tui"
       ],
       "methods": {},
@@ -236,11 +239,78 @@
         "Path",
         "typer.Option",
         "Path",
+        "typer.Option",
         "analyze",
         "ArchitectureAnalyzer",
+        "load_rules",
+        "validate",
+        "ArchitectureValidator",
         "write_json_report",
         "write_html_report",
         "console.print",
+        "console.print",
+        "app.command",
+        "typer.Argument",
+        "Path",
+        "typer.Option",
+        "Path",
+        "typer.Option",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "load_rules",
+        "validate",
+        "ArchitectureValidator",
+        "console.print",
+        "summary_panel",
+        "console.print",
+        "validation_table",
+        "write_check_report",
+        "console.print",
+        "typer.Exit",
+        "app.command",
+        "typer.Argument",
+        "Path",
+        "typer.Argument",
+        "typer.Argument",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "find_dependency_path",
+        "console.print",
+        "console.print",
+        "typer.Exit",
+        "app.command",
+        "typer.Argument",
+        "Path",
+        "typer.Argument",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "module_detail",
+        "console.print",
+        "typer.Exit",
+        "console.print",
+        "console.print",
+        "console.print",
+        "console.print",
+        "console.print",
+        "console.print",
+        "console.print",
+        "join",
+        "console.print",
+        "join",
+        "console.print",
+        "join",
+        "console.print",
+        "join",
+        "console.print",
+        "join",
+        "app.command",
+        "typer.Argument",
+        "Path",
+        "typer.Option",
+        "Path",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "write_mermaid_report",
         "console.print",
         "app.command",
         "typer.Argument",
@@ -252,21 +322,21 @@
       ],
       "syntax_error": null,
       "metrics": {
-        "lines": 43,
-        "code_lines": 36,
-        "import_count": 11,
+        "lines": 101,
+        "code_lines": 85,
+        "import_count": 18,
         "class_count": 0,
-        "function_count": 3,
+        "function_count": 7,
         "method_count": 0,
         "async_function_count": 0,
-        "branch_count": 2,
+        "branch_count": 12,
         "max_nesting": 2,
-        "complexity_score": 85
+        "complexity_score": 210
       }
     },
-    "config": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/config.py",
-      "package": "config",
+    "src.config": {
+      "path": "/home/user/src/config.py",
+      "package": "src",
       "imports": [
         "dataclasses",
         "dataclasses",
@@ -289,8 +359,8 @@
       ],
       "syntax_error": null,
       "metrics": {
-        "lines": 31,
-        "code_lines": 28,
+        "lines": 29,
+        "code_lines": 26,
         "import_count": 3,
         "class_count": 1,
         "function_count": 0,
@@ -298,12 +368,99 @@
         "async_function_count": 0,
         "branch_count": 0,
         "max_nesting": 2,
-        "complexity_score": 48
+        "complexity_score": 46
       }
     },
-    "formatting": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/formatting.py",
-      "package": "formatting",
+    "src.dependency_queries": {
+      "path": "/home/user/src/dependency_queries.py",
+      "package": "src",
+      "imports": [
+        "collections",
+        "dataclasses",
+        "src.graph",
+        "src.graph",
+        "src.models",
+        "src.models"
+      ],
+      "classes": [
+        "ModuleDetail",
+        "DependencyPath"
+      ],
+      "functions": [
+        "graph_from_summary",
+        "module_detail",
+        "find_dependency_path",
+        "filter_modules",
+        "dependency_lines"
+      ],
+      "methods": {
+        "ModuleDetail": [],
+        "DependencyPath": [
+          "found",
+          "text"
+        ]
+      },
+      "calls": [
+        "bool",
+        "join",
+        "summary.modules.values",
+        "DependencyGraph.from_imports",
+        "set",
+        "summary.modules.get",
+        "set",
+        "graph_from_summary",
+        "closest_known_module",
+        "internal.append",
+        "external.append",
+        "ModuleDetail",
+        "sorted",
+        "set",
+        "sorted",
+        "set",
+        "sorted",
+        "len",
+        "len",
+        "graph_from_summary",
+        "DependencyPath",
+        "deque",
+        "queue.popleft",
+        "DependencyPath",
+        "sorted",
+        "visited.add",
+        "queue.append",
+        "DependencyPath",
+        "strip",
+        "query.lower",
+        "sorted",
+        "summary.modules.values",
+        "module.name.lower",
+        "lower",
+        "str",
+        "graph_from_summary",
+        "sorted",
+        "sorted",
+        "lines.append",
+        "lines.append",
+        "len",
+        "lines.append"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 99,
+        "code_lines": 83,
+        "import_count": 6,
+        "class_count": 2,
+        "function_count": 5,
+        "method_count": 2,
+        "async_function_count": 0,
+        "branch_count": 15,
+        "max_nesting": 4,
+        "complexity_score": 213
+      }
+    },
+    "src.formatting": {
+      "path": "/home/user/src/formatting.py",
+      "package": "src",
       "imports": [
         "rich.table",
         "rich.panel",
@@ -377,9 +534,47 @@
         "complexity_score": 103
       }
     },
-    "graph": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/graph.py",
-      "package": "graph",
+    "src.formatting_rules": {
+      "path": "/home/user/src/formatting_rules.py",
+      "package": "src",
+      "imports": [
+        "rich.table",
+        "src.rules"
+      ],
+      "classes": [],
+      "functions": [
+        "validation_table"
+      ],
+      "methods": {},
+      "calls": [
+        "Table",
+        "table.add_column",
+        "table.add_column",
+        "table.add_column",
+        "table.add_column",
+        "table.add_column",
+        "table.add_column",
+        "table.add_row",
+        "table.add_row",
+        "str"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 17,
+        "code_lines": 15,
+        "import_count": 2,
+        "class_count": 0,
+        "function_count": 1,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 3,
+        "max_nesting": 2,
+        "complexity_score": 45
+      }
+    },
+    "src.graph": {
+      "path": "/home/user/src/graph.py",
+      "package": "src",
       "imports": [
         "collections",
         "collections",
@@ -471,8 +666,8 @@
       ],
       "syntax_error": null,
       "metrics": {
-        "lines": 118,
-        "code_lines": 105,
+        "lines": 112,
+        "code_lines": 99,
         "import_count": 4,
         "class_count": 1,
         "function_count": 1,
@@ -480,12 +675,12 @@
         "async_function_count": 0,
         "branch_count": 23,
         "max_nesting": 6,
-        "complexity_score": 277
+        "complexity_score": 271
       }
     },
-    "models": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/models.py",
-      "package": "models",
+    "src.models": {
+      "path": "/home/user/src/models.py",
+      "package": "src",
       "imports": [
         "dataclasses",
         "dataclasses",
@@ -530,9 +725,9 @@
         "complexity_score": 78
       }
     },
-    "parser": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/parser.py",
-      "package": "parser",
+    "src.parser": {
+      "path": "/home/user/src/parser.py",
+      "package": "src",
       "imports": [
         "ast",
         "pathlib",
@@ -647,8 +842,8 @@
       ],
       "syntax_error": null,
       "metrics": {
-        "lines": 194,
-        "code_lines": 170,
+        "lines": 174,
+        "code_lines": 150,
         "import_count": 7,
         "class_count": 2,
         "function_count": 0,
@@ -656,12 +851,12 @@
         "async_function_count": 0,
         "branch_count": 19,
         "max_nesting": 4,
-        "complexity_score": 347
+        "complexity_score": 327
       }
     },
-    "reports": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/reports/__init__.py",
-      "package": "reports",
+    "src.reports": {
+      "path": "/home/user/src/reports/__init__.py",
+      "package": "src",
       "imports": [],
       "classes": [],
       "functions": [],
@@ -681,13 +876,48 @@
         "complexity_score": 0
       }
     },
-    "reports.html_report": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/reports/html_report.py",
-      "package": "reports",
+    "src.reports.check_report": {
+      "path": "/home/user/src/reports/check_report.py",
+      "package": "src",
+      "imports": [
+        "json",
+        "pathlib",
+        "src.rules"
+      ],
+      "classes": [],
+      "functions": [
+        "write_check_report",
+        "validation_payload"
+      ],
+      "methods": {},
+      "calls": [
+        "path.parent.mkdir",
+        "validation_payload",
+        "path.write_text",
+        "json.dumps"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 31,
+        "code_lines": 27,
+        "import_count": 3,
+        "class_count": 0,
+        "function_count": 2,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 0,
+        "max_nesting": 1,
+        "complexity_score": 43
+      }
+    },
+    "src.reports.html_report": {
+      "path": "/home/user/src/reports/html_report.py",
+      "package": "src",
       "imports": [
         "pathlib",
         "jinja2",
-        "src.models"
+        "src.models",
+        "src.rules"
       ],
       "classes": [],
       "functions": [
@@ -704,25 +934,27 @@
       ],
       "syntax_error": null,
       "metrics": {
-        "lines": 44,
+        "lines": 45,
         "code_lines": 41,
-        "import_count": 3,
+        "import_count": 4,
         "class_count": 0,
         "function_count": 1,
         "method_count": 0,
         "async_function_count": 0,
         "branch_count": 0,
         "max_nesting": 1,
-        "complexity_score": 54
+        "complexity_score": 56
       }
     },
-    "reports.json_report": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/reports/json_report.py",
-      "package": "reports",
+    "src.reports.json_report": {
+      "path": "/home/user/src/reports/json_report.py",
+      "package": "src",
       "imports": [
         "json",
         "pathlib",
-        "src.models"
+        "src.models",
+        "src.reports.check_report",
+        "src.rules"
       ],
       "classes": [],
       "functions": [
@@ -732,6 +964,7 @@
       "calls": [
         "path.parent.mkdir",
         "str",
+        "validation_payload",
         "str",
         "sorted",
         "summary.modules.items",
@@ -740,21 +973,156 @@
       ],
       "syntax_error": null,
       "metrics": {
-        "lines": 31,
-        "code_lines": 29,
-        "import_count": 3,
+        "lines": 34,
+        "code_lines": 32,
+        "import_count": 5,
         "class_count": 0,
         "function_count": 1,
         "method_count": 0,
         "async_function_count": 0,
         "branch_count": 0,
         "max_nesting": 1,
-        "complexity_score": 42
+        "complexity_score": 49
       }
     },
-    "scanner": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/scanner.py",
-      "package": "scanner",
+    "src.reports.mermaid_report": {
+      "path": "/home/user/src/reports/mermaid_report.py",
+      "package": "src",
+      "imports": [
+        "pathlib",
+        "re",
+        "src.dependency_queries",
+        "src.models"
+      ],
+      "classes": [],
+      "functions": [
+        "write_mermaid_report",
+        "render_mermaid",
+        "_alias"
+      ],
+      "methods": {},
+      "calls": [
+        "path.parent.mkdir",
+        "path.write_text",
+        "render_mermaid",
+        "graph_from_summary",
+        "_alias",
+        "sorted",
+        "sorted",
+        "lines.append",
+        "sorted",
+        "sorted",
+        "lines.append",
+        "join",
+        "re.sub"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 27,
+        "code_lines": 21,
+        "import_count": 4,
+        "class_count": 0,
+        "function_count": 3,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 3,
+        "max_nesting": 3,
+        "complexity_score": 65
+      }
+    },
+    "src.rules": {
+      "path": "/home/user/src/rules.py",
+      "package": "src",
+      "imports": [
+        "dataclasses",
+        "dataclasses",
+        "pathlib",
+        "typing",
+        "fnmatch",
+        "yaml"
+      ],
+      "classes": [
+        "ForbiddenImportRule",
+        "LayerRule",
+        "IgnoreRule",
+        "ArchitectureRules",
+        "RuleViolation",
+        "ValidationResult"
+      ],
+      "functions": [
+        "load_rules",
+        "rules_from_mapping",
+        "matches_pattern"
+      ],
+      "methods": {
+        "ForbiddenImportRule": [],
+        "LayerRule": [],
+        "IgnoreRule": [],
+        "ArchitectureRules": [],
+        "RuleViolation": [],
+        "ValidationResult": [
+          "has_errors",
+          "error_count",
+          "warning_count"
+        ]
+      },
+      "calls": [
+        "field",
+        "field",
+        "field",
+        "field",
+        "field",
+        "any",
+        "sum",
+        "sum",
+        "RuntimeError",
+        "yaml.safe_load",
+        "path.read_text",
+        "rules_from_mapping",
+        "ArchitectureRules",
+        "LayerRule",
+        "str",
+        "item.get",
+        "list",
+        "item.get",
+        "list",
+        "item.get",
+        "payload.get",
+        "ForbiddenImportRule",
+        "str",
+        "item.get",
+        "str",
+        "item.get",
+        "str",
+        "item.get",
+        "str",
+        "item.get",
+        "payload.get",
+        "IgnoreRule",
+        "str",
+        "item.get",
+        "str",
+        "item.get",
+        "payload.get",
+        "fnmatch.fnmatchcase"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 103,
+        "code_lines": 82,
+        "import_count": 6,
+        "class_count": 6,
+        "function_count": 3,
+        "method_count": 3,
+        "async_function_count": 0,
+        "branch_count": 3,
+        "max_nesting": 2,
+        "complexity_score": 156
+      }
+    },
+    "src.scanner": {
+      "path": "/home/user/src/scanner.py",
+      "package": "src",
       "imports": [
         "pathlib",
         "src.config"
@@ -802,38 +1170,230 @@
         "complexity_score": 95
       }
     },
-    "tests.conftest": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/tests/conftest.py",
-      "package": "tests",
+    "src.tui": {
+      "path": "/home/user/src/tui.py",
+      "package": "src",
       "imports": [
         "pathlib",
-        "sys"
+        "src.analyzer",
+        "src.dependency_queries",
+        "src.dependency_queries",
+        "src.dependency_queries",
+        "textual.app",
+        "textual.app",
+        "textual.containers",
+        "textual.widgets",
+        "textual.widgets",
+        "textual.widgets",
+        "textual.widgets",
+        "textual.widgets",
+        "textual.widgets",
+        "textual.widgets",
+        "rich.console",
+        "src.formatting",
+        "src.formatting",
+        "src.formatting",
+        "src.formatting"
       ],
-      "classes": [],
-      "functions": [],
-      "methods": {},
+      "classes": [
+        "PyArchLensApp"
+      ],
+      "functions": [
+        "run_tui",
+        "_fallback_tui"
+      ],
+      "methods": {
+        "PyArchLensApp": [
+          "__init__",
+          "compose",
+          "on_mount",
+          "on_input_changed",
+          "on_data_table_row_selected",
+          "action_refresh",
+          "_stats_text",
+          "_fill_tables",
+          "_fill_modules",
+          "_fill_cycles",
+          "_fill_external",
+          "_show_module_detail"
+        ]
+      },
       "calls": [
-        "resolve",
-        "Path",
+        "_fallback_tui",
+        "__init__",
+        "super",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "Header",
+        "Container",
+        "Static",
+        "self._stats_text",
+        "TabbedContent",
+        "TabPane",
+        "Input",
+        "DataTable",
+        "Static",
+        "TabPane",
+        "Static",
+        "join",
+        "dependency_lines",
+        "TabPane",
+        "DataTable",
+        "TabPane",
+        "DataTable",
+        "Footer",
+        "self._fill_tables",
+        "self._fill_modules",
+        "event.data_table.get_row",
+        "self._show_module_detail",
         "str",
-        "sys.path.insert"
+        "analyze",
+        "ArchitectureAnalyzer",
+        "self.query_one",
+        "stats.update",
+        "self._stats_text",
+        "self.query_one",
+        "graph.update",
+        "join",
+        "dependency_lines",
+        "self._fill_tables",
+        "len",
+        "stats.get",
+        "len",
+        "len",
+        "self._fill_modules",
+        "self._fill_cycles",
+        "self._fill_external",
+        "self.query_one",
+        "modules.clear",
+        "modules.add_columns",
+        "line.split",
+        "dependency_lines",
+        "filter_modules",
+        "module_detail",
+        "str",
+        "str",
+        "modules.add_row",
+        "str",
+        "str",
+        "str",
+        "self.query_one",
+        "cycles.clear",
+        "cycles.add_columns",
+        "enumerate",
+        "cycles.add_row",
+        "str",
+        "join",
+        "cycles.add_row",
+        "self.query_one",
+        "external.clear",
+        "external.add_columns",
+        "self.summary.external_imports.items",
+        "external.add_row",
+        "str",
+        "external.add_row",
+        "self.query_one",
+        "module_detail",
+        "target.update",
+        "join",
+        "join",
+        "join",
+        "join",
+        "join",
+        "target.update",
+        "join",
+        "run",
+        "PyArchLensApp",
+        "Console",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "console.print",
+        "summary_panel",
+        "console.print",
+        "module_table",
+        "console.print",
+        "cycle_table",
+        "console.print",
+        "external_table"
       ],
       "syntax_error": null,
       "metrics": {
-        "lines": 10,
-        "code_lines": 8,
-        "import_count": 2,
-        "class_count": 0,
-        "function_count": 0,
-        "method_count": 0,
+        "lines": 144,
+        "code_lines": 123,
+        "import_count": 20,
+        "class_count": 1,
+        "function_count": 2,
+        "method_count": 12,
         "async_function_count": 0,
-        "branch_count": 2,
-        "max_nesting": 2,
-        "complexity_score": 30
+        "branch_count": 16,
+        "max_nesting": 5,
+        "complexity_score": 297
+      }
+    },
+    "src.validator": {
+      "path": "/home/user/src/validator.py",
+      "package": "src",
+      "imports": [
+        "src.graph",
+        "src.models",
+        "src.rules",
+        "src.rules",
+        "src.rules",
+        "src.rules"
+      ],
+      "classes": [
+        "ArchitectureValidator"
+      ],
+      "functions": [],
+      "methods": {
+        "ArchitectureValidator": [
+          "__init__",
+          "validate",
+          "_validate_forbidden_import",
+          "_validate_layer",
+          "_layer_for_module",
+          "_is_ignored"
+        ]
+      },
+      "calls": [
+        "ValidationResult",
+        "set",
+        "summary.modules.values",
+        "closest_known_module",
+        "self._is_ignored",
+        "self._validate_forbidden_import",
+        "result.violations.append",
+        "self._validate_layer",
+        "result.violations.append",
+        "result.violations.sort",
+        "matches_pattern",
+        "matches_pattern",
+        "RuleViolation",
+        "self._layer_for_module",
+        "self._layer_for_module",
+        "RuleViolation",
+        "any",
+        "matches_pattern",
+        "any",
+        "matches_pattern",
+        "matches_pattern"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 71,
+        "code_lines": 64,
+        "import_count": 6,
+        "class_count": 1,
+        "function_count": 0,
+        "method_count": 6,
+        "async_function_count": 0,
+        "branch_count": 18,
+        "max_nesting": 5,
+        "complexity_score": 202
       }
     },
     "tests.test_analyzer": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/tests/test_analyzer.py",
+      "path": "/home/user/tests/test_analyzer.py",
       "package": "tests",
       "imports": [
         "pathlib",
@@ -867,8 +1427,57 @@
         "complexity_score": 21
       }
     },
+    "tests.test_dependency_queries": {
+      "path": "/home/user/tests/test_dependency_queries.py",
+      "package": "tests",
+      "imports": [
+        "pathlib",
+        "src.analyzer",
+        "src.dependency_queries",
+        "src.dependency_queries",
+        "src.dependency_queries",
+        "src.dependency_queries"
+      ],
+      "classes": [],
+      "functions": [
+        "test_find_dependency_path",
+        "test_module_detail_and_filter"
+      ],
+      "methods": {},
+      "calls": [
+        "pkg.mkdir",
+        "write_text",
+        "write_text",
+        "write_text",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "find_dependency_path",
+        "pkg.mkdir",
+        "write_text",
+        "write_text",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "module_detail",
+        "filter_modules",
+        "any",
+        "dependency_lines"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 29,
+        "code_lines": 25,
+        "import_count": 6,
+        "class_count": 0,
+        "function_count": 2,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 0,
+        "max_nesting": 1,
+        "complexity_score": 47
+      }
+    },
     "tests.test_graph": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/tests/test_graph.py",
+      "path": "/home/user/tests/test_graph.py",
       "package": "tests",
       "imports": [
         "src.graph",
@@ -898,8 +1507,8 @@
       ],
       "syntax_error": null,
       "metrics": {
-        "lines": 31,
-        "code_lines": 25,
+        "lines": 26,
+        "code_lines": 20,
         "import_count": 3,
         "class_count": 0,
         "function_count": 3,
@@ -907,11 +1516,57 @@
         "async_function_count": 0,
         "branch_count": 0,
         "max_nesting": 1,
-        "complexity_score": 44
+        "complexity_score": 39
+      }
+    },
+    "tests.test_mermaid_report": {
+      "path": "/home/user/tests/test_mermaid_report.py",
+      "package": "tests",
+      "imports": [
+        "pathlib",
+        "src.analyzer",
+        "src.reports.mermaid_report",
+        "src.reports.mermaid_report"
+      ],
+      "classes": [],
+      "functions": [
+        "test_mermaid_rendering",
+        "test_mermaid_writer"
+      ],
+      "methods": {},
+      "calls": [
+        "pkg.mkdir",
+        "write_text",
+        "write_text",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "render_mermaid",
+        "pkg.mkdir",
+        "write_text",
+        "write_text",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "write_mermaid_report",
+        "out.exists",
+        "startswith",
+        "out.read_text"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 26,
+        "code_lines": 22,
+        "import_count": 4,
+        "class_count": 0,
+        "function_count": 2,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 0,
+        "max_nesting": 1,
+        "complexity_score": 40
       }
     },
     "tests.test_parser": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/tests/test_parser.py",
+      "path": "/home/user/tests/test_parser.py",
       "package": "tests",
       "imports": [
         "pathlib",
@@ -931,8 +1586,8 @@
       ],
       "syntax_error": null,
       "metrics": {
-        "lines": 31,
-        "code_lines": 27,
+        "lines": 28,
+        "code_lines": 24,
         "import_count": 2,
         "class_count": 0,
         "function_count": 1,
@@ -940,11 +1595,43 @@
         "async_function_count": 0,
         "branch_count": 0,
         "max_nesting": 1,
-        "complexity_score": 38
+        "complexity_score": 35
+      }
+    },
+    "tests.test_rules": {
+      "path": "/home/user/tests/test_rules.py",
+      "package": "tests",
+      "imports": [
+        "src.rules",
+        "src.rules"
+      ],
+      "classes": [],
+      "functions": [
+        "test_rules_from_mapping",
+        "test_matches_pattern"
+      ],
+      "methods": {},
+      "calls": [
+        "rules_from_mapping",
+        "matches_pattern",
+        "matches_pattern"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 18,
+        "code_lines": 14,
+        "import_count": 2,
+        "class_count": 0,
+        "function_count": 2,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 0,
+        "max_nesting": 1,
+        "complexity_score": 28
       }
     },
     "tests.test_scanner": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/tests/test_scanner.py",
+      "path": "/home/user/tests/test_scanner.py",
       "package": "tests",
       "imports": [
         "pathlib",
@@ -981,126 +1668,52 @@
         "complexity_score": 33
       }
     },
-    "tui": {
-      "path": "/Users/worldpactleader/workflow/projects/py-arch-lens/src/tui.py",
-      "package": "tui",
+    "tests.test_validator": {
+      "path": "/home/user/tests/test_validator.py",
+      "package": "tests",
       "imports": [
         "pathlib",
         "src.analyzer",
-        "textual.app",
-        "textual.app",
-        "textual.containers",
-        "textual.containers",
-        "textual.widgets",
-        "textual.widgets",
-        "textual.widgets",
-        "textual.widgets",
-        "textual.widgets",
-        "textual.widgets",
-        "rich.console",
-        "src.formatting",
-        "src.formatting",
-        "src.formatting",
-        "src.formatting"
+        "src.rules",
+        "src.validator"
       ],
-      "classes": [
-        "PyArchLensApp"
-      ],
+      "classes": [],
       "functions": [
-        "run_tui",
-        "_fallback_tui"
+        "test_forbidden_import_detection",
+        "test_layer_violation_detection"
       ],
-      "methods": {
-        "PyArchLensApp": [
-          "__init__",
-          "compose",
-          "on_mount",
-          "action_refresh",
-          "_stats_text",
-          "_fill_tables"
-        ]
-      },
+      "methods": {},
       "calls": [
-        "_fallback_tui",
-        "__init__",
-        "super",
+        "pkg.mkdir",
+        "tests.mkdir",
+        "write_text",
+        "write_text",
         "analyze",
         "ArchitectureAnalyzer",
-        "Header",
-        "Container",
-        "Static",
-        "self._stats_text",
-        "TabbedContent",
-        "TabPane",
-        "DataTable",
-        "TabPane",
-        "DataTable",
-        "TabPane",
-        "DataTable",
-        "Footer",
-        "self._fill_tables",
+        "rules_from_mapping",
+        "validate",
+        "ArchitectureValidator",
+        "pkg.mkdir",
+        "write_text",
+        "write_text",
         "analyze",
         "ArchitectureAnalyzer",
-        "self.query_one",
-        "stats.update",
-        "self._stats_text",
-        "self._fill_tables",
-        "len",
-        "stats.get",
-        "len",
-        "len",
-        "self.query_one",
-        "modules.clear",
-        "modules.add_columns",
-        "sorted",
-        "self.summary.modules.items",
-        "modules.add_row",
-        "str",
-        "str",
-        "str",
-        "str",
-        "str",
-        "self.query_one",
-        "cycles.clear",
-        "cycles.add_columns",
-        "enumerate",
-        "cycles.add_row",
-        "str",
-        "join",
-        "cycles.add_row",
-        "self.query_one",
-        "external.clear",
-        "external.add_columns",
-        "self.summary.external_imports.items",
-        "external.add_row",
-        "str",
-        "external.add_row",
-        "run",
-        "PyArchLensApp",
-        "Console",
-        "analyze",
-        "ArchitectureAnalyzer",
-        "console.print",
-        "summary_panel",
-        "console.print",
-        "module_table",
-        "console.print",
-        "cycle_table",
-        "console.print",
-        "external_table"
+        "rules_from_mapping",
+        "validate",
+        "ArchitectureValidator"
       ],
       "syntax_error": null,
       "metrics": {
-        "lines": 105,
-        "code_lines": 91,
-        "import_count": 17,
-        "class_count": 1,
+        "lines": 35,
+        "code_lines": 31,
+        "import_count": 4,
+        "class_count": 0,
         "function_count": 2,
-        "method_count": 6,
+        "method_count": 0,
         "async_function_count": 0,
-        "branch_count": 7,
-        "max_nesting": 5,
-        "complexity_score": 202
+        "branch_count": 0,
+        "max_nesting": 1,
+        "complexity_score": 49
       }
     }
   }
