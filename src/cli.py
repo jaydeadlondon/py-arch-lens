@@ -11,6 +11,13 @@ from src.rules import load_rules
 from src.validator import ArchitectureValidator
 from src.dependency_queries import find_dependency_path, module_detail
 from src.reports.mermaid_report import write_mermaid_report
+from src.formatting_snapshots import complexity_delta_table, diff_table
+from src.snapshots import (
+    compare_snapshots,
+    load_snapshot,
+    write_diff_report,
+    write_snapshot,
+)
 
 app = typer.Typer(help="Analyze Python project architecture")
 console = Console()
@@ -110,6 +117,43 @@ def mermaid(
     summary = ArchitectureAnalyzer(project).analyze()
     path = write_mermaid_report(summary, out)
     console.print(f"Mermaid graph: {path}")
+
+
+@app.command()
+def snapshot(
+    project: Path = typer.Argument(Path("."), exists=True, file_okay=False),
+    out: Path = typer.Option(Path("snapshots/architecture.json")),
+    config: Path | None = typer.Option(None, "--config", "-c"),
+) -> None:
+    summary = ArchitectureAnalyzer(project).analyze()
+    validation = None
+    if config:
+        rules = load_rules(config)
+        validation = ArchitectureValidator(rules).validate(summary)
+    path = write_snapshot(summary, out, validation)
+    console.print(f"Snapshot: {path}")
+
+
+@app.command()
+def compare(
+    old: Path = typer.Argument(..., exists=True, dir_okay=False),
+    new: Path = typer.Argument(..., exists=True, dir_okay=False),
+    out: Path | None = typer.Option(None, "--out"),
+    max_drift: int | None = typer.Option(None, "--max-drift"),
+    fail_on_regression: bool = typer.Option(False, "--fail-on-regression"),
+) -> None:
+    old_snapshot = load_snapshot(old)
+    new_snapshot = load_snapshot(new)
+    diff = compare_snapshots(old_snapshot, new_snapshot)
+    console.print(diff_table(diff))
+    console.print(complexity_delta_table(diff))
+    if out:
+        path = write_diff_report(diff, out)
+        console.print(f"Comparison report: {path}")
+    if max_drift is not None and diff.drift_score > max_drift:
+        raise typer.Exit(1)
+    if fail_on_regression and diff.has_regression:
+        raise typer.Exit(1)
 
 
 @app.command()
