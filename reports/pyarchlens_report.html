@@ -83,11 +83,11 @@
       <section class="cards">
         <div class="card">
           <div>Modules</div>
-          <div class="number">28</div>
+          <div class="number">31</div>
         </div>
         <div class="card">
           <div>Edges</div>
-          <div class="number">52</div>
+          <div class="number">61</div>
         </div>
         <div class="card">
           <div>Cycles</div>
@@ -120,12 +120,20 @@
             <th>Score</th>
           </tr>
           <tr>
+            <td>src.snapshots</td>
+            <td>333</td>
+          </tr>
+          <tr>
             <td>src.parser</td>
             <td>327</td>
           </tr>
           <tr>
             <td>src.tui</td>
-            <td>297</td>
+            <td>296</td>
+          </tr>
+          <tr>
+            <td>src.cli</td>
+            <td>283</td>
           </tr>
           <tr>
             <td>src.graph</td>
@@ -134,10 +142,6 @@
           <tr>
             <td>src.dependency_queries</td>
             <td>213</td>
-          </tr>
-          <tr>
-            <td>src.cli</td>
-            <td>210</td>
           </tr>
           <tr>
             <td>src.validator</td>
@@ -154,10 +158,6 @@
           <tr>
             <td>src.scanner</td>
             <td>95</td>
-          </tr>
-          <tr>
-            <td>src.analyzer</td>
-            <td>88</td>
           </tr>
         </table>
       </section>
@@ -202,11 +202,11 @@
           </tr>
           <tr>
             <td>src.cli</td>
-            <td>101</td>
-            <td>18</td>
+            <td>130</td>
+            <td>24</td>
             <td>0</td>
-            <td>7</td>
-            <td>210</td>
+            <td>9</td>
+            <td>283</td>
           </tr>
           <tr>
             <td>src.config</td>
@@ -239,6 +239,14 @@
             <td>0</td>
             <td>1</td>
             <td>45</td>
+          </tr>
+          <tr>
+            <td>src.formatting_snapshots</td>
+            <td>34</td>
+            <td>2</td>
+            <td>0</td>
+            <td>2</td>
+            <td>58</td>
           </tr>
           <tr>
             <td>src.graph</td>
@@ -321,12 +329,20 @@
             <td>95</td>
           </tr>
           <tr>
+            <td>src.snapshots</td>
+            <td>208</td>
+            <td>11</td>
+            <td>1</td>
+            <td>10</td>
+            <td>333</td>
+          </tr>
+          <tr>
             <td>src.tui</td>
-            <td>144</td>
+            <td>143</td>
             <td>20</td>
             <td>1</td>
             <td>14</td>
-            <td>297</td>
+            <td>296</td>
           </tr>
           <tr>
             <td>src.validator</td>
@@ -393,6 +409,14 @@
             <td>33</td>
           </tr>
           <tr>
+            <td>tests.test_snapshots</td>
+            <td>43</td>
+            <td>8</td>
+            <td>0</td>
+            <td>2</td>
+            <td>65</td>
+          </tr>
+          <tr>
             <td>tests.test_validator</td>
             <td>35</td>
             <td>4</td>
@@ -404,14 +428,50 @@
       </section>
       <section>
         <h2>External imports</h2>
-        <span class="tag">pathlib: 18</span><span class="tag">textual: 10</span
-        ><span class="tag">dataclasses: 7</span><span class="tag">rich: 6</span
+        <span class="tag">pathlib: 20</span><span class="tag">textual: 10</span
+        ><span class="tag">dataclasses: 9</span><span class="tag">rich: 7</span
         ><span class="tag">collections: 4</span
-        ><span class="tag">typing: 2</span><span class="tag">json: 2</span
-        ><span class="tag">typer: 1</span><span class="tag">ast: 1</span
-        ><span class="tag">jinja2: 1</span><span class="tag">re: 1</span
-        ><span class="tag">fnmatch: 1</span><span class="tag">yaml: 1</span>
+        ><span class="tag">typing: 3</span><span class="tag">json: 3</span
+        ><span class="tag">datetime: 2</span><span class="tag">typer: 1</span
+        ><span class="tag">ast: 1</span><span class="tag">jinja2: 1</span
+        ><span class="tag">re: 1</span><span class="tag">fnmatch: 1</span
+        ><span class="tag">yaml: 1</span>
       </section>
     </main>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'a1fcbb0b7a65d9d3',t:'MTc4NDgzMTE1Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
   </body>
 </html>

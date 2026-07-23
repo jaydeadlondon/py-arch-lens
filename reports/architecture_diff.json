@@ -1,0 +1,29 @@
+{
+    "drift_score": 0,
+    "has_regression": false,
+    "graph": {
+      "old": {
+        "nodes": 31,
+        "edges": 61,
+        "orphans": 2,
+        "cycles": 0
+      },
+      "new": {
+        "nodes": 31,
+        "edges": 61,
+        "orphans": 2,
+        "cycles": 0
+      }
+    },
+    "added_modules": [],
+    "removed_modules": [],
+    "added_edges": [],
+    "removed_edges": [],
+    "new_cycles": [],
+    "resolved_cycles": [],
+    "complexity_increases": [],
+    "complexity_decreases": [],
+    "new_external_imports": [],
+    "removed_external_imports": []
+  }
+  

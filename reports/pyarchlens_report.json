@@ -1,8 +1,8 @@
 {
   "root": "/home/user",
   "graph": {
-    "nodes": 28,
-    "edges": 52,
+    "nodes": 31,
+    "edges": 61,
     "orphans": 2,
     "cycles": 0
   },
@@ -12,13 +12,14 @@
     "src.reports"
   ],
   "external_imports": {
-    "pathlib": 18,
+    "pathlib": 20,
     "textual": 10,
-    "dataclasses": 7,
-    "rich": 6,
+    "dataclasses": 9,
+    "rich": 7,
     "collections": 4,
-    "typing": 2,
-    "json": 2,
+    "typing": 3,
+    "json": 3,
+    "datetime": 2,
     "typer": 1,
     "ast": 1,
     "jinja2": 1,
@@ -28,12 +29,20 @@
   },
   "top_complex_modules": [
     [
+      "src.snapshots",
+      333
+    ],
+    [
       "src.parser",
       327
     ],
     [
       "src.tui",
-      297
+      296
+    ],
+    [
+      "src.cli",
+      283
     ],
     [
       "src.graph",
@@ -42,10 +51,6 @@
     [
       "src.dependency_queries",
       213
-    ],
-    [
-      "src.cli",
-      210
     ],
     [
       "src.validator",
@@ -62,10 +67,6 @@
     [
       "src.scanner",
       95
-    ],
-    [
-      "src.analyzer",
-      88
     ]
   ],
   "validation": {
@@ -206,6 +207,12 @@
         "src.dependency_queries",
         "src.dependency_queries",
         "src.reports.mermaid_report",
+        "src.formatting_snapshots",
+        "src.formatting_snapshots",
+        "src.snapshots",
+        "src.snapshots",
+        "src.snapshots",
+        "src.snapshots",
         "src.tui"
       ],
       "classes": [],
@@ -216,6 +223,8 @@
         "path",
         "module",
         "mermaid",
+        "snapshot",
+        "compare",
         "tui"
       ],
       "methods": {},
@@ -315,6 +324,36 @@
         "app.command",
         "typer.Argument",
         "Path",
+        "typer.Option",
+        "Path",
+        "typer.Option",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "load_rules",
+        "validate",
+        "ArchitectureValidator",
+        "write_snapshot",
+        "console.print",
+        "app.command",
+        "typer.Argument",
+        "typer.Argument",
+        "typer.Option",
+        "typer.Option",
+        "typer.Option",
+        "load_snapshot",
+        "load_snapshot",
+        "compare_snapshots",
+        "console.print",
+        "diff_table",
+        "console.print",
+        "complexity_delta_table",
+        "write_diff_report",
+        "console.print",
+        "typer.Exit",
+        "typer.Exit",
+        "app.command",
+        "typer.Argument",
+        "Path",
         "console.print",
         "typer.Exit",
         "run_tui",
@@ -322,16 +361,16 @@
       ],
       "syntax_error": null,
       "metrics": {
-        "lines": 101,
-        "code_lines": 85,
-        "import_count": 18,
+        "lines": 130,
+        "code_lines": 110,
+        "import_count": 24,
         "class_count": 0,
-        "function_count": 7,
+        "function_count": 9,
         "method_count": 0,
         "async_function_count": 0,
-        "branch_count": 12,
+        "branch_count": 18,
         "max_nesting": 2,
-        "complexity_score": 210
+        "complexity_score": 283
       }
     },
     "src.config": {
@@ -570,6 +609,80 @@
         "branch_count": 3,
         "max_nesting": 2,
         "complexity_score": 45
+      }
+    },
+    "src.formatting_snapshots": {
+      "path": "/home/user/src/formatting_snapshots.py",
+      "package": "src",
+      "imports": [
+        "rich.table",
+        "src.snapshots"
+      ],
+      "classes": [],
+      "functions": [
+        "diff_table",
+        "complexity_delta_table"
+      ],
+      "methods": {},
+      "calls": [
+        "Table",
+        "table.add_column",
+        "table.add_column",
+        "table.add_row",
+        "str",
+        "table.add_row",
+        "str",
+        "len",
+        "table.add_row",
+        "str",
+        "len",
+        "table.add_row",
+        "str",
+        "len",
+        "table.add_row",
+        "str",
+        "len",
+        "table.add_row",
+        "str",
+        "len",
+        "table.add_row",
+        "str",
+        "len",
+        "table.add_row",
+        "str",
+        "len",
+        "table.add_row",
+        "str",
+        "len",
+        "table.add_row",
+        "str",
+        "len",
+        "table.add_row",
+        "str",
+        "len",
+        "Table",
+        "table.add_column",
+        "table.add_column",
+        "table.add_column",
+        "table.add_column",
+        "table.add_row",
+        "table.add_row",
+        "str",
+        "str",
+        "str"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 34,
+        "code_lines": 30,
+        "import_count": 2,
+        "class_count": 0,
+        "function_count": 2,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 2,
+        "max_nesting": 2,
+        "complexity_score": 58
       }
     },
     "src.graph": {
@@ -1170,6 +1283,175 @@
         "complexity_score": 95
       }
     },
+    "src.snapshots": {
+      "path": "/home/user/src/snapshots.py",
+      "package": "src",
+      "imports": [
+        "dataclasses",
+        "dataclasses",
+        "datetime",
+        "datetime",
+        "pathlib",
+        "typing",
+        "json",
+        "src.dependency_queries",
+        "src.models",
+        "src.reports.check_report",
+        "src.rules"
+      ],
+      "classes": [
+        "SnapshotDiff"
+      ],
+      "functions": [
+        "create_snapshot",
+        "write_snapshot",
+        "load_snapshot",
+        "normalize_snapshot",
+        "compare_snapshots",
+        "diff_payload",
+        "write_diff_report",
+        "_closest"
+      ],
+      "methods": {
+        "SnapshotDiff": [
+          "drift_score",
+          "has_regression"
+        ]
+      },
+      "calls": [
+        "field",
+        "field",
+        "field",
+        "field",
+        "field",
+        "field",
+        "field",
+        "field",
+        "field",
+        "field",
+        "field",
+        "field",
+        "len",
+        "len",
+        "len",
+        "len",
+        "len",
+        "len",
+        "len",
+        "len",
+        "len",
+        "bool",
+        "graph_from_summary",
+        "sorted",
+        "graph.edges.items",
+        "isoformat",
+        "datetime.now",
+        "str",
+        "str",
+        "sorted",
+        "summary.modules.items",
+        "validation_payload",
+        "path.parent.mkdir",
+        "create_snapshot",
+        "path.write_text",
+        "json.dumps",
+        "normalize_snapshot",
+        "json.loads",
+        "path.read_text",
+        "payload.get",
+        "set",
+        "set",
+        "modules.items",
+        "info.get",
+        "_closest",
+        "edges.add",
+        "payload.get",
+        "payload.get",
+        "payload.get",
+        "info.get",
+        "info.get",
+        "get",
+        "info.get",
+        "get",
+        "info.get",
+        "get",
+        "info.get",
+        "get",
+        "info.get",
+        "get",
+        "info.get",
+        "get",
+        "info.get",
+        "get",
+        "info.get",
+        "get",
+        "info.get",
+        "get",
+        "info.get",
+        "modules.items",
+        "sorted",
+        "payload.get",
+        "payload.get",
+        "payload.get",
+        "payload.get",
+        "set",
+        "old.get",
+        "set",
+        "new.get",
+        "old.get",
+        "new.get",
+        "tuple",
+        "old.get",
+        "tuple",
+        "new.get",
+        "set",
+        "old.get",
+        "set",
+        "new.get",
+        "sorted",
+        "int",
+        "get",
+        "int",
+        "get",
+        "increases.append",
+        "decreases.append",
+        "increases.sort",
+        "decreases.sort",
+        "SnapshotDiff",
+        "sorted",
+        "sorted",
+        "sorted",
+        "sorted",
+        "list",
+        "sorted",
+        "list",
+        "sorted",
+        "sorted",
+        "sorted",
+        "old.get",
+        "new.get",
+        "path.parent.mkdir",
+        "path.write_text",
+        "json.dumps",
+        "diff_payload",
+        "target.split",
+        "join",
+        "parts.pop"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 208,
+        "code_lines": 188,
+        "import_count": 11,
+        "class_count": 1,
+        "function_count": 8,
+        "method_count": 2,
+        "async_function_count": 0,
+        "branch_count": 15,
+        "max_nesting": 4,
+        "complexity_score": 333
+      }
+    },
     "src.tui": {
       "path": "/home/user/src/tui.py",
       "package": "src",
@@ -1267,8 +1549,6 @@
         "self.query_one",
         "modules.clear",
         "modules.add_columns",
-        "line.split",
-        "dependency_lines",
         "filter_modules",
         "module_detail",
         "str",
@@ -1318,8 +1598,8 @@
       ],
       "syntax_error": null,
       "metrics": {
-        "lines": 144,
-        "code_lines": 123,
+        "lines": 143,
+        "code_lines": 122,
         "import_count": 20,
         "class_count": 1,
         "function_count": 2,
@@ -1327,7 +1607,7 @@
         "async_function_count": 0,
         "branch_count": 16,
         "max_nesting": 5,
-        "complexity_score": 297
+        "complexity_score": 296
       }
     },
     "src.validator": {
@@ -1666,6 +1946,53 @@
         "branch_count": 0,
         "max_nesting": 1,
         "complexity_score": 33
+      }
+    },
+    "tests.test_snapshots": {
+      "path": "/home/user/tests/test_snapshots.py",
+      "package": "tests",
+      "imports": [
+        "pathlib",
+        "src.analyzer",
+        "src.snapshots",
+        "src.snapshots",
+        "src.snapshots",
+        "src.snapshots",
+        "src.snapshots",
+        "src.snapshots"
+      ],
+      "classes": [],
+      "functions": [
+        "test_snapshot_creation_and_loading",
+        "test_snapshot_comparison"
+      ],
+      "methods": {},
+      "calls": [
+        "pkg.mkdir",
+        "write_text",
+        "write_text",
+        "analyze",
+        "ArchitectureAnalyzer",
+        "create_snapshot",
+        "write_snapshot",
+        "load_snapshot",
+        "compare_snapshots",
+        "diff_payload",
+        "write_diff_report",
+        "out.exists"
+      ],
+      "syntax_error": null,
+      "metrics": {
+        "lines": 43,
+        "code_lines": 39,
+        "import_count": 8,
+        "class_count": 0,
+        "function_count": 2,
+        "method_count": 0,
+        "async_function_count": 0,
+        "branch_count": 0,
+        "max_nesting": 1,
+        "complexity_score": 65
       }
     },
     "tests.test_validator": {
