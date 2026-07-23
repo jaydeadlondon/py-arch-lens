@@ -156,6 +156,7 @@ PyArchLens analyzes a project and reports:
 
 ```text
 py-arch-lens/
+├── docs/
 ├── reports/
 ├── src/
 │   ├── __init__.py
@@ -287,6 +288,10 @@ pyarchlens report . --out reports --config pyarchlens.yml
 
 The `check` command exits with code `1` when error-level violations are found, which makes it suitable for CI pipelines.
 
+## Dependency exploration
+
+Version 0.3 adds dependency exploration features for deeper architecture inspection.
+
 ### Find a dependency path
 
 ```bash
@@ -351,4 +356,66 @@ Controls:
 ```text
 q  Quit
 r  Refresh analysis
+```
+
+## Historical snapshots and drift detection
+
+Version 0.4 adds architecture snapshots and comparison reports.
+
+### Create a snapshot
+
+```bash
+pyarchlens snapshot . --config pyarchlens.yml --out snapshots/architecture.json
+```
+
+A snapshot stores:
+
+- module metrics
+- dependency edges
+- cycles
+- orphan modules
+- external imports
+- architecture validation results
+
+### Compare two snapshots or reports
+
+```bash
+pyarchlens compare snapshots/baseline.json snapshots/architecture.json --out reports/architecture_diff.json
+```
+
+The comparison report includes:
+
+- drift score
+- added and removed modules
+- added and removed dependency edges
+- new and resolved cycles
+- complexity increases and decreases
+- new and removed external imports
+
+### Use drift checks in CI
+
+Fail when drift is above a threshold:
+
+```bash
+pyarchlens compare snapshots/baseline.json snapshots/architecture.json --max-drift 25
+```
+
+Fail on architecture regression:
+
+```bash
+pyarchlens compare snapshots/baseline.json snapshots/architecture.json --fail-on-regression
+```
+
+### GitHub Actions
+
+A ready-to-use workflow is available at:
+
+```text
+.github/workflows/architecture.yml
+```
+
+Additional documentation is available at:
+
+```text
+docs/github_actions.md
 ```
