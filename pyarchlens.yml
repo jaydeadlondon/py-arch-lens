@@ -9,6 +9,7 @@ layers:
       - reports
       - rules
       - queries
+      - history
       - core
   - name: application
     modules:
@@ -21,6 +22,14 @@ layers:
       - "src.dependency_queries"
     may_depend_on:
       - core
+  - name: history
+    modules:
+      - "src.snapshots"
+    may_depend_on:
+      - core
+      - rules
+      - queries
+      - reports
   - name: core
     modules:
       - "src.config"
